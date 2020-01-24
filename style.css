@@ -27,6 +27,8 @@ body::-webkit-scrollbar {
   left: 0;
   color: white;
   display: none;
+  opacity: 0;
+
 }
 
 #decrease-rate {
@@ -184,6 +186,7 @@ a:hover {
   justify-content: flex-end;
   align-self: flex-start;
   border-left: 1px solid #222;
+  
 }
 
 .one-depth-list,
@@ -192,6 +195,7 @@ a:hover {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow: visible;
 
 }
 
@@ -200,11 +204,18 @@ a:hover {
   justify-self: center;
   overflow: auto;
   height: 80px;
+  z-index: 10;
+  background-color: #111;
+  position: relative;
 }
 
 .two-depth-list {
   display: none;
   margin-top: 8px;
+  transform: translateY(-100px)
+  z-index: -10;
+  opacity: 0;
+  position: fixed;
 }
 
 .three-depth-list {
@@ -220,8 +231,9 @@ a:hover {
   padding: 8px 16px;
   border-radius: 24px;
   border: 1px solid white;
-font-weight: 800;
+  font-weight: 800;
   vertical-align: middle;
+  
 }
 
 .one-depth-item {
@@ -232,9 +244,6 @@ font-weight: 800;
   border-radius: 40px;
 }
 
-.one-depth-item {
-  /* background-color: blue; */
-}
 
 .two-depth-item {
   display: flex;
@@ -255,10 +264,12 @@ font-weight: 800;
 .one-depth-wrapper {
   /* width: 100%; */
   display: inline-block;
+  z-index: 10;
   /* overflow: auto; */
 }
 
 .two-depth-wrapper {
-  overflow: auto;
+  overflow: visible;
   width: 100%;
+  z-index: -10;
 }

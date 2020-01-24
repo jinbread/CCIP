@@ -106,14 +106,43 @@ var groundState = false;
 var waterState = false;
 var overlayState = false;
 
+anime({
+    targets: '#air-sub',
+    translateY: -100,
+    opacity: 0,
+    duration: 0,
+})
+
+anime({
+    targets: '#ground-sub',
+    translateY: -100,
+    opacity: 0,
+    duration: 0,
+})
+
+
+anime({
+    targets: '#water-sub',
+    translateY: -100,
+    opacity: 0,
+    duration: 0,
+})
+
+anime({
+    targets: '#overlay-area',
+    translateX: -200,
+    opacity: 0,
+    duration: 0
+})
+
 document.addEventListener('click', function (e) {
 
     if (e.target.id === "air") {
         airState = !airState;
         groundState = false;
         waterState = false;
-        
-        
+
+
         overlayState = true;
         selectedArray = testArray[0]
     }
@@ -122,7 +151,7 @@ document.addEventListener('click', function (e) {
         airState = false
         groundState = !groundState
         waterState = false
-        
+
         overlayState = true;
         selectedArray = testArray[1]
     }
@@ -140,28 +169,99 @@ document.addEventListener('click', function (e) {
         overlayState = false;
     }
 
-    if(overlayState === true ) {
+    if (overlayState === true) {
         document.getElementById("overlay-area").style.display = "block"
+        anime({
+            targets: '#overlay-area',
+            translateX: 0,
+            opacity: 1
+        })
     } else {
-        document.getElementById("overlay-area").style.display = "none"
+        anime({
+            targets: '#overlay-area',
+            translateX: -200,
+            opacity: 0,
+            complete: function (anim) {
+                if (anim.complete === true) {
+                    document.getElementById("overlay-area").style.display = "none"
+                }
+            }
+        })
+
     }
+
+
 
     if (airState === true) {
         document.getElementById("air-sub").style.display = "block"
+        anime({
+            targets: '#air-sub',
+            translateY: 0,
+            opacity: 1,
+            easing: 'easeOutExpo',
+            duration: 300
+        })
     } else {
-        document.getElementById("air-sub").style.display = "none"
+        anime({
+            targets: '#air-sub',
+            translateY: -100,
+            opacity: 0,
+            easing: 'easeOutExpo',
+            duration: 300,
+            complete: function (anim) {
+                if (anim.complete === true) {
+                    document.getElementById("air-sub").style.display = "none"
+                }
+            }
+        })
     }
 
     if (groundState === true) {
         document.getElementById("ground-sub").style.display = "block"
+        anime({
+            targets: '#ground-sub',
+            translateY: 0,
+            opacity: 1,
+            easing: 'easeOutExpo',
+            duration: 300
+        })
     } else {
-        document.getElementById("ground-sub").style.display = "none"
+        anime({
+            targets: '#ground-sub',
+            translateY: -100,
+            opacity: 0,
+            easing: 'easeOutExpo',
+            duration: 300,
+            complete: function (anim) {
+                if (anim.complete === true) {
+                    document.getElementById("ground-sub").style.display = "none"
+                }
+            }
+        })
     }
 
     if (waterState === true) {
         document.getElementById("water-sub").style.display = "block"
+        anime({
+            targets: '#water-sub',
+            translateY: 0,
+            opacity: 1,
+            easing: 'easeOutExpo',
+            duration: 300
+        })
     } else {
-        document.getElementById("water-sub").style.display = "none"
+        anime({
+            targets: '#water-sub',
+            translateY: -100,
+            opacity: 0,
+            easing: 'easeOutExpo',
+            duration: 300,
+            complete: function (anim) {
+                if (anim.complete === true) {
+                    document.getElementById("water-sub").style.display = "none"
+                }
+            }
+        })
     }
 
 

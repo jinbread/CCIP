@@ -130,9 +130,14 @@ anime({
 
 anime({
     targets: '#overlay-area',
-    translateX: -200,
+    translateX: 0,
     opacity: 0,
     duration: 0
+})
+
+anime({
+    targets: '.overlay-wrapper',
+    translateX: -200,
 })
 
 document.addEventListener('click', function (e) {
@@ -141,28 +146,36 @@ document.addEventListener('click', function (e) {
         airState = !airState;
         groundState = false;
         waterState = false;
+    }
 
-
+    if(e.target.id === "air-1-1") {
         overlayState = true;
         selectedArray = testArray[0]
+        airState = !airState;
     }
+    if(e.target.id === "air-1-2") {
+        overlayState = true;
+        selectedArray = testArray[1]
+        airState = !airState;
+    }
+    if(e.target.id === "air-1-3") {
+        overlayState = true;
+        selectedArray = testArray[2]
+        airState = !airState;
+    }
+
+
 
     if (e.target.id === "ground") {
         airState = false
         groundState = !groundState
         waterState = false
-
-        overlayState = true;
-        selectedArray = testArray[1]
     }
 
     if (e.target.id === "water") {
         airState = false
         groundState = false
         waterState = !waterState
-
-        overlayState = true;
-        selectedArray = testArray[2]
     }
 
     if (e.target.id === "home") {
@@ -173,13 +186,19 @@ document.addEventListener('click', function (e) {
         document.getElementById("overlay-area").style.display = "block"
         anime({
             targets: '#overlay-area',
-            translateX: 0,
             opacity: 1
+        })
+        anime({
+            targets: '.overlay-wrapper',
+            translateX: 0
         })
     } else {
         anime({
+            targets: '.overlay-wrapper',
+            translateX: -200
+        })
+        anime({
             targets: '#overlay-area',
-            translateX: -200,
             opacity: 0,
             complete: function (anim) {
                 if (anim.complete === true) {
@@ -194,6 +213,7 @@ document.addEventListener('click', function (e) {
 
     if (airState === true) {
         document.getElementById("air-sub").style.display = "block"
+        document.getElementById("air").style.opacity = 1
         anime({
             targets: '#air-sub',
             translateY: 0,
@@ -202,6 +222,7 @@ document.addEventListener('click', function (e) {
             duration: 300
         })
     } else {
+        document.getElementById("air").style.opacity = .4
         anime({
             targets: '#air-sub',
             translateY: -100,
@@ -211,6 +232,7 @@ document.addEventListener('click', function (e) {
             complete: function (anim) {
                 if (anim.complete === true) {
                     document.getElementById("air-sub").style.display = "none"
+                    
                 }
             }
         })
@@ -218,6 +240,7 @@ document.addEventListener('click', function (e) {
 
     if (groundState === true) {
         document.getElementById("ground-sub").style.display = "block"
+        document.getElementById("ground").style.opacity = 1
         anime({
             targets: '#ground-sub',
             translateY: 0,
@@ -226,6 +249,7 @@ document.addEventListener('click', function (e) {
             duration: 300
         })
     } else {
+        document.getElementById("ground").style.opacity = .4
         anime({
             targets: '#ground-sub',
             translateY: -100,
@@ -242,6 +266,7 @@ document.addEventListener('click', function (e) {
 
     if (waterState === true) {
         document.getElementById("water-sub").style.display = "block"
+        document.getElementById("water").style.opacity = 1
         anime({
             targets: '#water-sub',
             translateY: 0,
@@ -250,6 +275,7 @@ document.addEventListener('click', function (e) {
             duration: 300
         })
     } else {
+        document.getElementById("water").style.opacity = .4
         anime({
             targets: '#water-sub',
             translateY: -100,

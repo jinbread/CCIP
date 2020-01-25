@@ -96,6 +96,9 @@ window.addEventListener("scroll", function (e) {
     decreaseRate = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * selectedSpeciesMaxDecreaseRate;
     this.document.getElementById("selected-species").innerHTML = selectedSpecies;
     this.document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0) + "%";
+
+    document.getElementById("progress-bar").style.height = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 100 + "%"
+
 });
 
 
@@ -148,17 +151,17 @@ document.addEventListener('click', function (e) {
         waterState = false;
     }
 
-    if(e.target.id === "air-1-1") {
+    if (e.target.id === "air-1-1") {
         overlayState = true;
         selectedArray = testArray[0]
         airState = !airState;
     }
-    if(e.target.id === "air-1-2") {
+    if (e.target.id === "air-1-2") {
         overlayState = true;
         selectedArray = testArray[1]
         airState = !airState;
     }
-    if(e.target.id === "air-1-3") {
+    if (e.target.id === "air-1-3") {
         overlayState = true;
         selectedArray = testArray[2]
         airState = !airState;
@@ -232,7 +235,7 @@ document.addEventListener('click', function (e) {
             complete: function (anim) {
                 if (anim.complete === true) {
                     document.getElementById("air-sub").style.display = "none"
-                    
+
                 }
             }
         })
@@ -343,6 +346,8 @@ document.addEventListener("mouseover", function (e) {
         document.getElementById("water-species-c-sub").style.display = "block"
     }
 })
+
+
 
 document.addEventListener("mouseout", function (e) {
     if (e.target.id !== "bird" && e.target.id !== "bird-sub") {

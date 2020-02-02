@@ -85,6 +85,9 @@ var relatedSpeciesHTML = displayRelatedSpecies(relatedSpeciesArray)
 
 
 
+
+
+
 // Scroll Interaction
 window.addEventListener("scroll", function (e) {
     degreeChange = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 2;
@@ -106,7 +109,7 @@ window.addEventListener("scroll", function (e) {
 // Nav Button Interaction 
 var airState = false;
 var groundState = false;
-var waterState = false;
+var marineState = false;
 var overlayState = false;
 
 anime({
@@ -125,7 +128,7 @@ anime({
 
 
 anime({
-    targets: '#water-sub',
+    targets: '#marine-sub',
     translateY: -100,
     opacity: 0,
     duration: 0,
@@ -143,12 +146,17 @@ anime({
     translateX: -200,
 })
 
+anime({
+    targets: '#marine-nav',
+    opacity: 0
+})
+
 document.addEventListener('click', function (e) {
 
     if (e.target.id === "air") {
         airState = !airState;
         groundState = false;
-        waterState = false;
+        marineState = false;
     }
 
     if (e.target.id === "air-1-1") {
@@ -172,17 +180,26 @@ document.addEventListener('click', function (e) {
     if (e.target.id === "ground") {
         airState = false
         groundState = !groundState
-        waterState = false
+        marineState = false
     }
 
-    if (e.target.id === "water") {
+    if (e.target.id === "marine") {
         airState = false
         groundState = false
-        waterState = !waterState
+        marineState = !marineState
+    }
+
+    if (e.target.id === "marine-fish-cod") {
+        overlayState = true;
+        selectedArray = testArray[0]
+        marineState = !marineState
     }
 
     if (e.target.id === "home") {
         overlayState = false;
+        marineState = false;
+        airState = false;
+        groundState = false;
     }
 
     if (overlayState === true) {
@@ -214,83 +231,107 @@ document.addEventListener('click', function (e) {
 
 
 
-    if (airState === true) {
-        document.getElementById("air-sub").style.display = "block"
-        document.getElementById("air").style.opacity = 1
+    // if (airState === true) {
+    //     document.getElementById("air-sub").style.display = "block"
+    //     document.getElementById("air").style.opacity = 1
+    //     anime({
+    //         targets: '#air-sub',
+    //         translateY: 0,
+    //         opacity: 1,
+    //         easing: 'easeOutExpo',
+    //         duration: 300
+    //     })
+    // } else {
+    //     document.getElementById("air").style.opacity = .4
+    //     anime({
+    //         targets: '#air-sub',
+    //         translateY: -100,
+    //         opacity: 0,
+    //         easing: 'easeOutExpo',
+    //         duration: 300,
+    //         complete: function (anim) {
+    //             if (anim.complete === true) {
+    //                 document.getElementById("air-sub").style.display = "none"
+
+    //             }
+    //         }
+    //     })
+    // }
+
+    // if (groundState === true) {
+    //     document.getElementById("ground-sub").style.display = "block"
+    //     document.getElementById("ground").style.opacity = 1
+    //     anime({
+    //         targets: '#ground-sub',
+    //         translateY: 0,
+    //         opacity: 1,
+    //         easing: 'easeOutExpo',
+    //         duration: 300
+    //     })
+    // } else {
+    //     document.getElementById("ground").style.opacity = .4
+    //     anime({
+    //         targets: '#ground-sub',
+    //         translateY: -100,
+    //         opacity: 0,
+    //         easing: 'easeOutExpo',
+    //         duration: 300,
+    //         complete: function (anim) {
+    //             if (anim.complete === true) {
+    //                 document.getElementById("ground-sub").style.display = "none"
+    //             }
+    //         }
+    //     })
+    // }
+
+    if (marineState === true) {
+
+        document.getElementById("marine-sub").style.display = "block"
+        document.getElementById("marine-nav").style.display = "block"
+        document.getElementById("marine").style.opacity = 1
         anime({
-            targets: '#air-sub',
+            targets: '#marine-sub',
             translateY: 0,
             opacity: 1,
             easing: 'easeOutExpo',
             duration: 300
         })
-    } else {
-        document.getElementById("air").style.opacity = .4
+
         anime({
-            targets: '#air-sub',
+            targets: '#marine-nav',
+            opacity: 1,
+            easing: 'easeOutExpo',
+            duration: 300
+        })
+
+    } else {
+        document.getElementById("marine").style.opacity = .4
+        anime({
+            targets: '#marine-sub',
             translateY: -100,
             opacity: 0,
             easing: 'easeOutExpo',
             duration: 300,
             complete: function (anim) {
                 if (anim.complete === true) {
-                    document.getElementById("air-sub").style.display = "none"
+                    document.getElementById("marine-sub").style.display = "none"
 
                 }
             }
         })
-    }
-
-    if (groundState === true) {
-        document.getElementById("ground-sub").style.display = "block"
-        document.getElementById("ground").style.opacity = 1
         anime({
-            targets: '#ground-sub',
-            translateY: 0,
-            opacity: 1,
-            easing: 'easeOutExpo',
-            duration: 300
-        })
-    } else {
-        document.getElementById("ground").style.opacity = .4
-        anime({
-            targets: '#ground-sub',
-            translateY: -100,
+            targets: '#marine-nav',
             opacity: 0,
             easing: 'easeOutExpo',
             duration: 300,
             complete: function (anim) {
                 if (anim.complete === true) {
-                    document.getElementById("ground-sub").style.display = "none"
-                }
-            }
-        })
-    }
+                    document.getElementById("marine-nav").style.display = "none"
 
-    if (waterState === true) {
-        document.getElementById("water-sub").style.display = "block"
-        document.getElementById("water").style.opacity = 1
-        anime({
-            targets: '#water-sub',
-            translateY: 0,
-            opacity: 1,
-            easing: 'easeOutExpo',
-            duration: 300
-        })
-    } else {
-        document.getElementById("water").style.opacity = .4
-        anime({
-            targets: '#water-sub',
-            translateY: -100,
-            opacity: 0,
-            easing: 'easeOutExpo',
-            duration: 300,
-            complete: function (anim) {
-                if (anim.complete === true) {
-                    document.getElementById("water-sub").style.display = "none"
                 }
             }
         })
+
     }
 
 
@@ -303,88 +344,96 @@ document.addEventListener('click', function (e) {
 
     relatedSpeciesArray = selectedArray.relatedSpecies
     relatedSpeciesHTML = displayRelatedSpecies(relatedSpeciesArray)
-    document.getElementById("related-species-list").innerHTML = `${relatedSpeciesHTML}`
+    // document.getElementById("related-species-list").innerHTML = `${relatedSpeciesHTML}`
 })
 
 
 
-document.addEventListener("mouseover", function (e) {
-    if (e.target.id === "bird" || e.target.id === "bird-sub") {
-        document.getElementById("bird-sub").style.display = "block"
-    }
-
-    if (e.target.id === "bee" || e.target.id === "bee-sub") {
-        document.getElementById("bee-sub").style.display = "block"
-    }
-
-    if (e.target.id === "tiger" || e.target.id === "tiger-sub") {
-        document.getElementById("tiger-sub").style.display = "block"
-    }
-
-    if (e.target.id === "ground-species-a" || e.target.id === "ground-species-a-sub") {
-        document.getElementById("ground-species-a-sub").style.display = "block"
-    }
-
-    if (e.target.id === "ground-species-b" || e.target.id === "ground-species-b-sub") {
-        document.getElementById("ground-species-b-sub").style.display = "block"
-    }
-
-    if (e.target.id === "ground-species-c" || e.target.id === "ground-species-c-sub") {
-        document.getElementById("ground-species-c-sub").style.display = "block"
-    }
-
-
-    if (e.target.id === "water-species-a" || e.target.id === "water-species-a-sub") {
-        document.getElementById("water-species-a-sub").style.display = "block"
-    }
-
-    if (e.target.id === "water-species-b" || e.target.id === "water-species-b-sub") {
-        document.getElementById("water-species-b-sub").style.display = "block"
-    }
-
-    if (e.target.id === "water-species-c" || e.target.id === "water-species-c-sub") {
-        document.getElementById("water-species-c-sub").style.display = "block"
-    }
-})
 
 
 
-document.addEventListener("mouseout", function (e) {
-    if (e.target.id !== "bird" && e.target.id !== "bird-sub") {
-        document.getElementById("bird-sub").style.display = "none"
-    }
-
-    if (e.target.id !== "bee" && e.target.id !== "bee-sub") {
-        document.getElementById("bee-sub").style.display = "none"
-    }
-
-    if (e.target.id !== "tiger" && e.target.id !== "tiger-sub") {
-        document.getElementById("tiger-sub").style.display = "none"
-    }
 
 
-    if (e.target.id !== "ground-species-a" && e.target.id !== "ground-species-a-sub") {
-        document.getElementById("ground-species-a-sub").style.display = "none"
-    }
-
-    if (e.target.id !== "ground-species-b" && e.target.id !== "ground-species-b-sub") {
-        document.getElementById("ground-species-b-sub").style.display = "none"
-    }
-
-    if (e.target.id !== "ground-species-c" && e.target.id !== "ground-species-c-sub") {
-        document.getElementById("ground-species-c-sub").style.display = "none"
-    }
+// Code to remove later
 
 
-    if (e.target.id !== "water-species-a" && e.target.id !== "water-species-a-sub") {
-        document.getElementById("water-species-a-sub").style.display = "none"
-    }
+// document.addEventListener("mouseover", function (e) {
+//     if (e.target.id === "bird" || e.target.id === "bird-sub") {
+//         document.getElementById("bird-sub").style.display = "block"
+//     }
 
-    if (e.target.id !== "water-species-b" && e.target.id !== "water-species-b-sub") {
-        document.getElementById("water-species-b-sub").style.display = "none"
-    }
+//     if (e.target.id === "bee" || e.target.id === "bee-sub") {
+//         document.getElementById("bee-sub").style.display = "block"
+//     }
 
-    if (e.target.id !== "water-species-c" && e.target.id !== "water-species-c-sub") {
-        document.getElementById("water-species-c-sub").style.display = "none"
-    }
-})
+//     if (e.target.id === "tiger" || e.target.id === "tiger-sub") {
+//         document.getElementById("tiger-sub").style.display = "block"
+//     }
+
+//     if (e.target.id === "ground-species-a" || e.target.id === "ground-species-a-sub") {
+//         document.getElementById("ground-species-a-sub").style.display = "block"
+//     }
+
+//     if (e.target.id === "ground-species-b" || e.target.id === "ground-species-b-sub") {
+//         document.getElementById("ground-species-b-sub").style.display = "block"
+//     }
+
+//     if (e.target.id === "ground-species-c" || e.target.id === "ground-species-c-sub") {
+//         document.getElementById("ground-species-c-sub").style.display = "block"
+//     }
+
+
+//     if (e.target.id === "marine-species-a" || e.target.id === "marine-species-a-sub") {
+//         document.getElementById("marine-species-a-sub").style.display = "block"
+//     }
+
+//     if (e.target.id === "marine-species-b" || e.target.id === "marine-species-b-sub") {
+//         document.getElementById("marine-species-b-sub").style.display = "block"
+//     }
+
+//     if (e.target.id === "marine-species-c" || e.target.id === "marine-species-c-sub") {
+//         document.getElementById("marine-species-c-sub").style.display = "block"
+//     }
+// })
+
+
+
+// document.addEventListener("mouseout", function (e) {
+//     if (e.target.id !== "bird" && e.target.id !== "bird-sub") {
+//         document.getElementById("bird-sub").style.display = "none"
+//     }
+
+//     if (e.target.id !== "bee" && e.target.id !== "bee-sub") {
+//         document.getElementById("bee-sub").style.display = "none"
+//     }
+
+//     if (e.target.id !== "tiger" && e.target.id !== "tiger-sub") {
+//         document.getElementById("tiger-sub").style.display = "none"
+//     }
+
+
+//     if (e.target.id !== "ground-species-a" && e.target.id !== "ground-species-a-sub") {
+//         document.getElementById("ground-species-a-sub").style.display = "none"
+//     }
+
+//     if (e.target.id !== "ground-species-b" && e.target.id !== "ground-species-b-sub") {
+//         document.getElementById("ground-species-b-sub").style.display = "none"
+//     }
+
+//     if (e.target.id !== "ground-species-c" && e.target.id !== "ground-species-c-sub") {
+//         document.getElementById("ground-species-c-sub").style.display = "none"
+//     }
+
+
+//     if (e.target.id !== "marine-species-a" && e.target.id !== "marine-species-a-sub") {
+//         document.getElementById("marine-species-a-sub").style.display = "none"
+//     }
+
+//     if (e.target.id !== "marine-species-b" && e.target.id !== "marine-species-b-sub") {
+//         document.getElementById("marine-species-b-sub").style.display = "none"
+//     }
+
+//     if (e.target.id !== "marine-species-c" && e.target.id !== "marine-species-c-sub") {
+//         document.getElementById("marine-species-c-sub").style.display = "none"
+//     }
+// })

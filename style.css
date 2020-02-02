@@ -43,12 +43,13 @@ body::-webkit-scrollbar {
   right: 0;
   display: flex;
   align-items: center;
+  z-index: 100;
   /* background: white;
   opacity: .2; */
 }
 
 #progress-bar-bg {
-  height: 80%;
+  height: 60%;
   width: 4px;
   position: absolute;
   border-radius: 100px;
@@ -129,6 +130,7 @@ h3 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  
 }
 
 #degree-change {
@@ -193,11 +195,21 @@ a:hover {
   position: fixed;
   top: 0;
   left: 0;
-  background: #111;
-  height: 80px;
+  background: blue;
+  /* height: 160px; */
   overflow: visible;
   width: 100%;
   z-index: 10;
+
+}
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #111;
+  height: 80px;
+  width: 100%;
   display: grid;
   grid-template-columns: 320px auto 210px;
   box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, .15);
@@ -245,7 +257,7 @@ a:hover {
   overflow: auto;
   height: 80px;
   z-index: 10;
-  background-color: #111;
+  /* background-color: #111; */
   position: relative;
 }
 
@@ -257,23 +269,6 @@ a:hover {
   position: fixed;
 }
 
-.three-depth-list {
-  display: none;
-}
-
-
-.two-depth-content {
-  display: inline-block;
-  color: #222;
-  background-color: white;
-  margin: 12px;
-  padding: 8px 16px;
-  border-radius: 24px;
-  border: 2px solid white;
-  font-weight: 800;
-  vertical-align: middle;
-  cursor: pointer;
-}
 
 .one-depth-item {
   color: white;
@@ -291,10 +286,15 @@ a:hover {
 
 
 .two-depth-item {
-  display: flex;
-  flex-direction: row;
-  float: left;
-  cursor: pointer
+  cursor: pointer;
+  display: inline-block;
+  color: #222;
+  background-color: white;
+  margin: 12px;
+  padding: 8px 16px;
+  border-radius: 24px;
+  border: 2px solid white;
+  font-weight: 800;
 }
 
 .three-depth-item {
@@ -319,4 +319,62 @@ a:hover {
   overflow: visible;
   width: 100%;
   z-index: -10;
+}
+
+
+#marine-nav {
+  display: none;
+}
+
+.two-depth-nav {
+  width: 100vw;
+  /* height: 100vh; */
+  background: navy;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -3;
+  opacity: 0;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+
+.two-depth-nav-wrapper {
+  width: 100%;
+  margin: 240px 60px 160px 0;
+  display: grid;
+  grid-template-columns: 320px auto;
+}
+
+.two-depth-nav-block {
+  display: grid;
+  grid-template-columns: 240px auto;
+  color: white;
+  margin-bottom: 120px;
+}
+
+.two-depth-nav-block-title {
+  font-size: 2em;
+}
+
+.two-depth-nav-block-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+.two-depth-nav-block-item {
+  width: 240px;
+  height: 160px;
+  font-size: 1.4em;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  opacity: .8;
+}
+
+.two-depth-nav-block-item:hover {
+  opacity: 1;
 }

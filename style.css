@@ -342,7 +342,7 @@ a:hover {
 
 .two-depth-nav-wrapper {
   width: 100%;
-  margin: 240px 60px 160px 0;
+  margin: 240px 120px 160px 0;
   display: grid;
   grid-template-columns: 320px auto;
 }
@@ -377,4 +377,8 @@ a:hover {
 
 .two-depth-nav-block-item:hover {
   opacity: 1;
+}
+
+#back-btn {
+  cursor: pointer;
 }

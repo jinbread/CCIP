@@ -152,6 +152,7 @@ anime({
 })
 
 document.addEventListener('click', function (e) {
+    console.log(e.target.id)
 
     if (e.target.id === "air") {
         airState = !airState;
@@ -195,7 +196,7 @@ document.addEventListener('click', function (e) {
         marineState = !marineState
     }
 
-    if (e.target.id === "home") {
+    if (e.target.id === "home" || e.target.id === "back-btn" ) {
         overlayState = false;
         marineState = false;
         airState = false;
@@ -288,6 +289,7 @@ document.addEventListener('click', function (e) {
 
         document.getElementById("marine-sub").style.display = "block"
         document.getElementById("marine-nav").style.display = "block"
+        document.getElementById("marine-nav").style.pointerEvents = "auto"
         document.getElementById("marine").style.opacity = 1
         anime({
             targets: '#marine-sub',
@@ -306,6 +308,7 @@ document.addEventListener('click', function (e) {
 
     } else {
         document.getElementById("marine").style.opacity = .4
+        document.getElementById("marine-nav").style.pointerEvents = "none"
         anime({
             targets: '#marine-sub',
             translateY: -100,
@@ -327,6 +330,7 @@ document.addEventListener('click', function (e) {
             complete: function (anim) {
                 if (anim.complete === true) {
                     document.getElementById("marine-nav").style.display = "none"
+                    
 
                 }
             }

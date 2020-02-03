@@ -337,15 +337,18 @@ a:hover {
   left: 0;
   z-index: -3;
   opacity: 0;
+
 }
 
 
 .two-depth-nav-wrapper {
 
-  width: 100vw;
-  height: 100vh;
+  width: 80vw;
   display: grid;
+  margin-left: auto;
+  margin-right: auto;
   grid-gap: 64px;
+
 }
 
 .two-depth-nav-block {

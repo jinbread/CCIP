@@ -73,7 +73,7 @@ var selectedArray = testArray[0]
 var selectedSpecies = selectedArray.name
 var descText = selectedArray.desc
 var selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate
-var relatedSpeciesArray = selectedArray.relatedSpecies
+// var relatedSpeciesArray = selectedArray.relatedSpecies
 
 
 // function displayRelatedSpecies(objectArray) {
@@ -94,17 +94,17 @@ var relatedSpeciesArray = selectedArray.relatedSpecies
 window.addEventListener("scroll", function (e) {
     degreeChange = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 2;
 
-    document.getElementById("degree-change").innerHTML = degreeChange.toFixed(1);
+    document.getElementById("degree-change").innerHTML = Math.floor(degreeChange * 10)/10;
     // Set for debugging. Will be deleted after testing. 
-    document.getElementById("pixel-change").innerHTML = this.window.pageYOffset + "px";
+    // document.getElementById("pixel-change").innerHTML = this.window.pageYOffset + "px";
 
     decreaseRate = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * selectedSpeciesMaxDecreaseRate;
     this.document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
-    this.document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0) + "%";
+    this.document.getElementById("decrease-rate").innerHTML = Math.floor(decreaseRate) + "%";
 
     document.getElementById("progress-bar").style.height = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 100 + "%"
 
-    if(degreeChange >= 2) {
+    if(Math.floor(degreeChange * 10)/10 > 1.9) {
         console.log("change")
         this.document.getElementById("whatif-btn").innerHTML = `<div class="whatif-btn">What if...</div>`;
     } else {
@@ -231,8 +231,8 @@ document.addEventListener('click', function (e) {
     document.getElementById("desc-text").innerHTML = descText;
     document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0) + "%";
 
-    relatedSpeciesArray = selectedArray.relatedSpecies
-    relatedSpeciesHTML = displayRelatedSpecies(relatedSpeciesArray)
+    // relatedSpeciesArray = selectedArray.relatedSpecies
+    // relatedSpeciesHTML = displayRelatedSpecies(relatedSpeciesArray)
     // document.getElementById("related-species-list").innerHTML = `${relatedSpeciesHTML}`
 })
 

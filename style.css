@@ -28,9 +28,9 @@ body::-webkit-scrollbar {
   color: white;
   display: none;
   opacity: 0;
-  background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%),
+  background: linear-gradient(217deg, rgba(17, 0, 170, 0.8), rgba(17, 0, 170, 0) 70.71%),
     /* linear-gradient(336deg, rgba(0, 255, 0, .4), rgba(0, 255, 0, 0) 70.71%), */
-    linear-gradient(127deg, rgba(255, 0, 255, .8), rgba(255, 0, 255, 0) 70.71%);
+    linear-gradient(127deg, rgb(0, 0, 0), rgba(0, 0, 0, 0) 70.71%);
 
 }
 
@@ -195,7 +195,7 @@ a:hover {
   position: fixed;
   top: 0;
   left: 0;
-  background: blue;
+  /* background: blue; */
   /* height: 160px; */
   overflow: visible;
   width: 100%;
@@ -207,12 +207,12 @@ a:hover {
   position: fixed;
   top: 0;
   left: 0;
-  background: #111;
+  /* background: #111; */
   height: 80px;
   width: 100%;
   display: grid;
   grid-template-columns: 320px auto 210px;
-  box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, .15);
+  /* box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, .15); */
 }
 
 .logo-wrapper {
@@ -220,7 +220,7 @@ a:hover {
   color: white;
   display: grid;
   height: 80px;
-  border-right: 1px solid #222;
+  /* border-right: 1px solid #222; */
 
 
 }
@@ -237,7 +237,7 @@ a:hover {
   display: flex;
   justify-content: flex-end;
   align-self: flex-start;
-  border-left: 1px solid #222;
+  /* border-left: 1px solid #222; */
 
 }
 
@@ -278,6 +278,7 @@ a:hover {
   opacity: .4;
   /* border-bottom: 2px solid white; */
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .one-depth-item:hover {
@@ -332,7 +333,8 @@ a:hover {
   /* height: 100vh; */
   background: navy;
   position: absolute;
-  margin-top: 80px;
+  /* margin-top: 80px; */
+  padding-top: 80px;
   color: white;
   top: 0;
   left: 0;
@@ -359,7 +361,8 @@ a:hover {
 }
 
 .two-depth-nav-block-title {
-  font-size: 2em;
+  font-size: 1.4em;
+  text-decoration: uppercase;
 }
 
 .two-depth-nav-block-list {
@@ -380,7 +383,8 @@ a:hover {
   margin: 0;
   padding: 0;
   opacity: .4;
-  background-color: magenta;
+  /* background-color: ; */
+  border: 1px solid white;
 }
 
 .two-depth-nav-block-item:hover {

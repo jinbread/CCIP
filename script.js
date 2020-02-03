@@ -102,6 +102,13 @@ window.addEventListener("scroll", function (e) {
 
     document.getElementById("progress-bar").style.height = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 100 + "%"
 
+    if(degreeChange >= 2) {
+        console.log("change")
+        this.document.getElementById("whatif-btn").innerHTML = `<div>What if...</div>`;
+    } else {
+        this.document.getElementById("whatif-btn").innerHTML = "";
+    }
+
 });
 
 
@@ -129,7 +136,7 @@ anime({
 
 anime({
     targets: '#marine-sub',
-    translateY: -100,
+    translateY: -20,
     opacity: 0,
     duration: 0,
 })
@@ -143,7 +150,7 @@ anime({
 
 anime({
     targets: '.overlay-wrapper',
-    translateX: -200,
+    translateY: 40,
 })
 
 anime({
@@ -211,12 +218,16 @@ document.addEventListener('click', function (e) {
         })
         anime({
             targets: '.overlay-wrapper',
-            translateX: 0
+            translateY: 0,
+            easing: 'easeOutExpo',
+            duration: 200
         })
     } else {
         anime({
             targets: '.overlay-wrapper',
-            translateX: -200
+            translateY: 40,
+            easing: 'easeOutExpo',
+            duration: 200
         })
         anime({
             targets: '#overlay-area',
@@ -296,14 +307,14 @@ document.addEventListener('click', function (e) {
             translateY: 0,
             opacity: 1,
             easing: 'easeOutExpo',
-            duration: 300
+            duration: 200
         })
 
         anime({
             targets: '#marine-nav',
             opacity: 1,
             easing: 'easeOutExpo',
-            duration: 300
+            duration: 200
         })
 
     } else {
@@ -311,10 +322,10 @@ document.addEventListener('click', function (e) {
         document.getElementById("marine-nav").style.pointerEvents = "none"
         anime({
             targets: '#marine-sub',
-            translateY: -100,
+            translateY: -20,
             opacity: 0,
             easing: 'easeOutExpo',
-            duration: 300,
+            duration: 200,
             complete: function (anim) {
                 if (anim.complete === true) {
                     document.getElementById("marine-sub").style.display = "none"
@@ -326,7 +337,7 @@ document.addEventListener('click', function (e) {
             targets: '#marine-nav',
             opacity: 0,
             easing: 'easeOutExpo',
-            duration: 300,
+            duration: 200,
             complete: function (anim) {
                 if (anim.complete === true) {
                     document.getElementById("marine-nav").style.display = "none"

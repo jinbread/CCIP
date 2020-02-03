@@ -130,7 +130,7 @@ h3 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
+
 }
 
 #degree-change {
@@ -331,27 +331,27 @@ a:hover {
   /* height: 100vh; */
   background: navy;
   position: absolute;
+  margin-top: 80px;
+  color: white;
   top: 0;
   left: 0;
   z-index: -3;
   opacity: 0;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
 }
 
 
 .two-depth-nav-wrapper {
-  width: 100%;
-  margin: 240px 120px 160px 0;
+
+  width: 100vw;
+  height: 100vh;
   display: grid;
-  grid-template-columns: 320px auto;
+  grid-gap: 64px;
 }
 
 .two-depth-nav-block {
+  width: 100%;
   display: grid;
-  grid-template-columns: 240px auto;
-  color: white;
-  margin-bottom: 120px;
+  grid-gap: 24px;
 }
 
 .two-depth-nav-block-title {
@@ -362,17 +362,21 @@ a:hover {
   list-style-type: none;
   margin: 0;
   padding: 0;
-
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(254px, 1fr));
+  grid-gap: 16px;
 }
 
 .two-depth-nav-block-item {
-  width: 240px;
+  width: 100%;
   height: 160px;
-  font-size: 1.4em;
   cursor: pointer;
   text-align: center;
   display: inline-block;
-  opacity: .8;
+  margin: 0;
+  padding: 0;
+  opacity: .4;
+  background-color: magenta;
 }
 
 .two-depth-nav-block-item:hover {
@@ -380,5 +384,25 @@ a:hover {
 }
 
 #back-btn {
+  opacity: .8;
   cursor: pointer;
+  font-size: 1.4em;
+}
+
+#back-btn:hover {
+  opacity: 1;
+}
+
+.whatif-btn {
+  font-size: 1.4em;
+  padding: 16px 24px;
+  border: 1px solid white;
+  display: inline-block;
+  margin-top: 24px;
+  opacity: .8;
+  cursor: pointer;
+}
+
+.whatif-btn:hover {
+  opacity: 1;
 }

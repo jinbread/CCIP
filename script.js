@@ -1,6 +1,7 @@
 var testArray = [{
-        name: "Species One",
+        name: "Cod",
         maxDecRate: 40,
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
         relatedSpecies: [{
                 name: "Species Ten"
             },
@@ -70,18 +71,19 @@ var verticalHeight = 20000;
 // Selected Species and max decrease rate will be assigned based on user input(click)
 var selectedArray = testArray[0]
 var selectedSpecies = selectedArray.name
+var descText = selectedArray.desc
 var selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate
 var relatedSpeciesArray = selectedArray.relatedSpecies
 
 
-function displayRelatedSpecies(objectArray) {
-    var mapObject = objectArray.map(function (species) {
-        return `<li class="related-tag"><a href="#">${species.name}</a></li>`
-    })
-    return mapObject.join('')
-}
+// function displayRelatedSpecies(objectArray) {
+//     var mapObject = objectArray.map(function (species) {
+//         return `<li class="related-tag"><a href="#">${species.name}</a></li>`
+//     })
+//     return mapObject.join('')
+// }
 
-var relatedSpeciesHTML = displayRelatedSpecies(relatedSpeciesArray)
+// var relatedSpeciesHTML = displayRelatedSpecies(relatedSpeciesArray)
 
 
 
@@ -97,14 +99,14 @@ window.addEventListener("scroll", function (e) {
     document.getElementById("pixel-change").innerHTML = this.window.pageYOffset + "px";
 
     decreaseRate = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * selectedSpeciesMaxDecreaseRate;
-    this.document.getElementById("selected-species").innerHTML = selectedSpecies;
+    this.document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
     this.document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0) + "%";
 
     document.getElementById("progress-bar").style.height = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 100 + "%"
 
     if(degreeChange >= 2) {
         console.log("change")
-        this.document.getElementById("whatif-btn").innerHTML = `<div>What if...</div>`;
+        this.document.getElementById("whatif-btn").innerHTML = `<div class="whatif-btn">What if...</div>`;
     } else {
         this.document.getElementById("whatif-btn").innerHTML = "";
     }
@@ -118,28 +120,6 @@ var airState = false;
 var groundState = false;
 var marineState = false;
 var overlayState = false;
-
-anime({
-    targets: '#air-sub',
-    translateY: -100,
-    opacity: 0,
-    duration: 0,
-})
-
-anime({
-    targets: '#ground-sub',
-    translateY: -100,
-    opacity: 0,
-    duration: 0,
-})
-
-
-anime({
-    targets: '#marine-sub',
-    translateY: -20,
-    opacity: 0,
-    duration: 0,
-})
 
 anime({
     targets: '#overlay-area',
@@ -160,36 +140,6 @@ anime({
 
 document.addEventListener('click', function (e) {
     console.log(e.target.id)
-
-    if (e.target.id === "air") {
-        airState = !airState;
-        groundState = false;
-        marineState = false;
-    }
-
-    if (e.target.id === "air-1-1") {
-        overlayState = true;
-        selectedArray = testArray[0]
-        airState = !airState;
-    }
-    if (e.target.id === "air-1-2") {
-        overlayState = true;
-        selectedArray = testArray[1]
-        airState = !airState;
-    }
-    if (e.target.id === "air-1-3") {
-        overlayState = true;
-        selectedArray = testArray[2]
-        airState = !airState;
-    }
-
-
-
-    if (e.target.id === "ground") {
-        airState = false
-        groundState = !groundState
-        marineState = false
-    }
 
     if (e.target.id === "marine") {
         airState = false
@@ -241,75 +191,10 @@ document.addEventListener('click', function (e) {
 
     }
 
-
-
-    // if (airState === true) {
-    //     document.getElementById("air-sub").style.display = "block"
-    //     document.getElementById("air").style.opacity = 1
-    //     anime({
-    //         targets: '#air-sub',
-    //         translateY: 0,
-    //         opacity: 1,
-    //         easing: 'easeOutExpo',
-    //         duration: 300
-    //     })
-    // } else {
-    //     document.getElementById("air").style.opacity = .4
-    //     anime({
-    //         targets: '#air-sub',
-    //         translateY: -100,
-    //         opacity: 0,
-    //         easing: 'easeOutExpo',
-    //         duration: 300,
-    //         complete: function (anim) {
-    //             if (anim.complete === true) {
-    //                 document.getElementById("air-sub").style.display = "none"
-
-    //             }
-    //         }
-    //     })
-    // }
-
-    // if (groundState === true) {
-    //     document.getElementById("ground-sub").style.display = "block"
-    //     document.getElementById("ground").style.opacity = 1
-    //     anime({
-    //         targets: '#ground-sub',
-    //         translateY: 0,
-    //         opacity: 1,
-    //         easing: 'easeOutExpo',
-    //         duration: 300
-    //     })
-    // } else {
-    //     document.getElementById("ground").style.opacity = .4
-    //     anime({
-    //         targets: '#ground-sub',
-    //         translateY: -100,
-    //         opacity: 0,
-    //         easing: 'easeOutExpo',
-    //         duration: 300,
-    //         complete: function (anim) {
-    //             if (anim.complete === true) {
-    //                 document.getElementById("ground-sub").style.display = "none"
-    //             }
-    //         }
-    //     })
-    // }
-
     if (marineState === true) {
-
-        document.getElementById("marine-sub").style.display = "block"
         document.getElementById("marine-nav").style.display = "block"
         document.getElementById("marine-nav").style.pointerEvents = "auto"
         document.getElementById("marine").style.opacity = 1
-        anime({
-            targets: '#marine-sub',
-            translateY: 0,
-            opacity: 1,
-            easing: 'easeOutExpo',
-            duration: 200
-        })
-
         anime({
             targets: '#marine-nav',
             opacity: 1,
@@ -320,19 +205,6 @@ document.addEventListener('click', function (e) {
     } else {
         document.getElementById("marine").style.opacity = .4
         document.getElementById("marine-nav").style.pointerEvents = "none"
-        anime({
-            targets: '#marine-sub',
-            translateY: -20,
-            opacity: 0,
-            easing: 'easeOutExpo',
-            duration: 200,
-            complete: function (anim) {
-                if (anim.complete === true) {
-                    document.getElementById("marine-sub").style.display = "none"
-
-                }
-            }
-        })
         anime({
             targets: '#marine-nav',
             opacity: 0,
@@ -352,9 +224,11 @@ document.addEventListener('click', function (e) {
 
     selectedSpecies = selectedArray.name;
     selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate;
+    descText = selectedArray.desc;
 
     decreaseRate = (window.pageYOffset / (verticalHeight - window.innerHeight)) * selectedSpeciesMaxDecreaseRate;
-    document.getElementById("selected-species").innerHTML = selectedSpecies;
+    document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
+    document.getElementById("desc-text").innerHTML = descText;
     document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0) + "%";
 
     relatedSpeciesArray = selectedArray.relatedSpecies

@@ -2,6 +2,7 @@ var testArray = [{
         name: "Cod",
         maxDecRate: 40,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        whatif: true,
         relatedSpecies: [{
                 name: "Species Ten"
             },
@@ -22,6 +23,8 @@ var testArray = [{
     {
         name: "Species Two",
         maxDecRate: 100,
+        desc: "Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+        whatif: false,
         relatedSpecies: [{
                 name: "Species Twenty"
             },
@@ -72,6 +75,7 @@ var verticalHeight = 20000;
 var selectedArray = testArray[0]
 var selectedSpecies = selectedArray.name
 var descText = selectedArray.desc
+var whatifCase = selectedArray.whatif
 var selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate
 // var relatedSpeciesArray = selectedArray.relatedSpecies
 
@@ -94,7 +98,7 @@ var selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate
 window.addEventListener("scroll", function (e) {
     degreeChange = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 2;
 
-    document.getElementById("degree-change").innerHTML = Math.floor(degreeChange * 10)/10;
+    document.getElementById("degree-change").innerHTML = Math.floor(degreeChange * 10) / 10;
     // Set for debugging. Will be deleted after testing. 
     // document.getElementById("pixel-change").innerHTML = this.window.pageYOffset + "px";
 
@@ -104,9 +108,10 @@ window.addEventListener("scroll", function (e) {
 
     document.getElementById("progress-bar").style.height = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 100 + "%"
 
-    if(Math.floor(degreeChange * 10)/10 > 1.9) {
-        console.log("change")
-        this.document.getElementById("whatif-btn").innerHTML = `<div class="whatif-btn">What if...</div>`;
+    if (Math.floor(degreeChange * 10) / 10 > 1.9) {
+        if (whatifCase == true) {
+            this.document.getElementById("whatif-btn").innerHTML = `<div class="whatif-btn">What if...</div>`;
+        }
     } else {
         this.document.getElementById("whatif-btn").innerHTML = "";
     }
@@ -133,10 +138,10 @@ anime({
     translateY: 40,
 })
 
-anime({
-    targets: '#marine-nav',
-    opacity: 0
-})
+// anime({
+//     targets: '#marine-nav',
+//     opacity: 0
+// })
 
 document.addEventListener('click', function (e) {
     console.log(e.target.id)
@@ -153,7 +158,13 @@ document.addEventListener('click', function (e) {
         marineState = !marineState
     }
 
-    if (e.target.id === "home" || e.target.id === "back-btn" ) {
+    if (e.target.id === "marine-fish-blue-whitning") {
+        overlayState = true;
+        selectedArray = testArray[1]
+        marineState = !marineState
+    }
+
+    if (e.target.id === "home" || e.target.id === "back-btn") {
         overlayState = false;
         marineState = false;
         airState = false;
@@ -213,7 +224,7 @@ document.addEventListener('click', function (e) {
             complete: function (anim) {
                 if (anim.complete === true) {
                     document.getElementById("marine-nav").style.display = "none"
-                    
+
 
                 }
             }
@@ -225,12 +236,22 @@ document.addEventListener('click', function (e) {
     selectedSpecies = selectedArray.name;
     selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate;
     descText = selectedArray.desc;
+    whatifCase = selectedArray.whatif
 
     decreaseRate = (window.pageYOffset / (verticalHeight - window.innerHeight)) * selectedSpeciesMaxDecreaseRate;
     document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
     document.getElementById("desc-text").innerHTML = descText;
     document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0) + "%";
 
+    if (Math.floor(degreeChange * 10) / 10 > 1.9) {
+        if (whatifCase === true) {
+            document.getElementById("whatif-btn").innerHTML = `<div class="whatif-btn">What if...</div>`;
+        } else {
+            document.getElementById("whatif-btn").innerHTML = "";
+        }
+    } else {
+        document.getElementById("whatif-btn").innerHTML = "";
+    }
     // relatedSpeciesArray = selectedArray.relatedSpecies
     // relatedSpeciesHTML = displayRelatedSpecies(relatedSpeciesArray)
     // document.getElementById("related-species-list").innerHTML = `${relatedSpeciesHTML}`

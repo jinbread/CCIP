@@ -36,7 +36,7 @@ body::-webkit-scrollbar {
 
 #progress-bar-area {
   height: 100vh - 80px;
-  width: 60px;
+  width: 120px;
   position: fixed;
   top: 80px;
   bottom: 0;
@@ -44,14 +44,37 @@ body::-webkit-scrollbar {
   display: flex;
   align-items: center;
   z-index: 100;
-  /* background: white;
+  justify-content: center;
+  color: white
+    /* background: white;
   opacity: .2; */
 }
 
-#progress-bar-bg {
+.progress-bar-wrapper {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.progress-bar-label {
+  height: 32px;
+  margin: 16px 0;
+  font-size: 1.2em;
+  opacity: .4;
+}
+
+.progress-bar {
   height: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+#progress-bar-bg {
+  height: 100%;
   width: 4px;
-  position: absolute;
+  position: relative;
   border-radius: 100px;
   background-color: rgba(255, 255, 255, .3);
   opacity: 1;
@@ -66,6 +89,7 @@ body::-webkit-scrollbar {
   border-radius: 100px;
   background: white;
   opacity: 1;
+  /* vertical-align: bottom; */
 }
 
 
@@ -159,7 +183,7 @@ h3 {
   text-align: center;
 }
 
-button {
+/* button {
   font-size: 2em;
   border-radius: 40px;
   padding: 4px 12px;
@@ -173,7 +197,7 @@ button {
 
 button:hover {
   opacity: 0.4;
-}
+} */
 
 
 a {
@@ -413,4 +437,47 @@ a:hover {
 
 .whatif-btn:hover {
   opacity: 1;
+}
+
+
+
+#landing-area {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: linear-gradient(217deg, rgba(17, 0, 170, 0.8), rgba(17, 0, 170, 0) 70.71%),
+    linear-gradient(336deg, rgba(235, 0, 0, 0.4), rgba(235, 0, 0, 0) 70.71%),
+    linear-gradient(127deg, rgb(0, 0, 0), rgba(0, 0, 0, 0) 70.71%);
+  z-index: 101;
+  display: flex;
+}
+
+.landing-wrapper {
+  max-width: 720px;
+  /* height: 50vh; */
+  margin: auto;
+  /* display: grid; */
+  text-align: center;
+  justify-content: center;
+  /* border: 1px solid white; */
+  color: white;
+}
+
+.landing-logo {
+  font-size: 2em;
+}
+
+.landing-text {
+  font-size: 1.2em;
+  margin: 32px 16px 48px 16px;
+}
+
+#explore-btn {
+  font-size: 1.4em;
+  border: 1px solid white;
+  width: 240px;
+  height: 60px;
+  background: none;
+  color: white
+  /* margin: 24px; */
 }

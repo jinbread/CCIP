@@ -92,6 +92,13 @@ var selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate
 
 
 
+function removeElement(elementId) {
+    // Removes an element from the document.
+    var element = document.getElementById(elementId);
+    element.remove(element);
+}
+
+
 
 
 // Scroll Interaction
@@ -145,6 +152,19 @@ anime({
 
 document.addEventListener('click', function (e) {
     console.log(e.target.id)
+
+    if (e.target.id === "explore-btn") {
+        anime({
+            targets: "#landing-area",
+            opacity: 0,
+            translateY: -100,
+        })
+        setTimeout(function(){
+            removeElement("landing-area")
+            console.log("landing removed")
+        }, 500)
+
+    }
 
     if (e.target.id === "marine") {
         airState = false
@@ -347,3 +367,4 @@ document.addEventListener('click', function (e) {
 //         document.getElementById("marine-species-c-sub").style.display = "none"
 //     }
 // })
+

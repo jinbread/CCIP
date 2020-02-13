@@ -1,66 +1,18 @@
 var testArray = [{
-        name: "Cod",
+        name: "Atlantic Mackereel",
         maxDecRate: 40,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
         whatif: true,
-        relatedSpecies: [{
-                name: "Species Ten"
-            },
-            {
-                name: "Species Eleven"
-            },
-            {
-                name: "Species Twelve"
-            },
-            {
-                name: "Species Thirteen"
-            },
-            {
-                name: "Species Fourteen"
-            }
-        ]
     },
     {
-        name: "Species Two",
+        name: "Blue Whitning",
         maxDecRate: 100,
         desc: "Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
         whatif: false,
-        relatedSpecies: [{
-                name: "Species Twenty"
-            },
-            {
-                name: "Species Twenty One"
-            },
-            {
-                name: "Species Twenty Two"
-            },
-            {
-                name: "Species Twenty Three"
-            }
-        ]
     },
     {
         name: "Species Three",
         maxDecRate: 70,
-        relatedSpecies: [{
-                name: "Species Thirty"
-            },
-            {
-                name: "Species Thirty One"
-            },
-            {
-                name: "Species Thirty Two"
-            },
-            {
-                name: "Species Thirty Three"
-            },
-            {
-                name: "Species Thirty Four"
-            },
-            {
-                name: "Species Thirty Five"
-            }
-        ]
     }
 ]
 
@@ -77,20 +29,6 @@ var selectedSpecies = selectedArray.name
 var descText = selectedArray.desc
 var whatifCase = selectedArray.whatif
 var selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate
-// var relatedSpeciesArray = selectedArray.relatedSpecies
-
-
-// function displayRelatedSpecies(objectArray) {
-//     var mapObject = objectArray.map(function (species) {
-//         return `<li class="related-tag"><a href="#">${species.name}</a></li>`
-//     })
-//     return mapObject.join('')
-// }
-
-// var relatedSpeciesHTML = displayRelatedSpecies(relatedSpeciesArray)
-
-
-
 
 function removeElement(elementId) {
     // Removes an element from the document.
@@ -98,16 +36,13 @@ function removeElement(elementId) {
     element.remove(element);
 }
 
-
-
-
 // Scroll Interaction
 window.addEventListener("scroll", function (e) {
     degreeChange = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 2;
 
     document.getElementById("degree-change").innerHTML = Math.floor(degreeChange * 10) / 10;
-    // Set for debugging. Will be deleted after testing. 
-    // document.getElementById("pixel-change").innerHTML = this.window.pageYOffset + "px";
+    // Set for scroll pixel debugging. 
+    // console.log("page Y Offset: " + this.window.pageYOffset)
 
     decreaseRate = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * selectedSpeciesMaxDecreaseRate;
     this.document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
@@ -116,11 +51,13 @@ window.addEventListener("scroll", function (e) {
     document.getElementById("progress-bar").style.height = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 100 + "%"
 
     if (Math.floor(degreeChange * 10) / 10 > 1.9) {
-        if (whatifCase == true) {
-            this.document.getElementById("whatif-btn").innerHTML = `<div class="whatif-btn">What if...</div>`;
+        if (whatifCase === true) {
+            document.getElementById("whatif-btn").innerHTML = `<button class="btn-large">What if...</button>`;
+        } else {
+            document.getElementById("whatif-btn").innerHTML = "";
         }
     } else {
-        this.document.getElementById("whatif-btn").innerHTML = "";
+        document.getElementById("whatif-btn").innerHTML = "";
     }
 
 });
@@ -145,13 +82,8 @@ anime({
     translateY: 40,
 })
 
-// anime({
-//     targets: '#marine-nav',
-//     opacity: 0
-// })
-
 document.addEventListener('click', function (e) {
-    console.log(e.target.id)
+    // console.log(e.target.id)
 
     if (e.target.id === "explore-btn") {
         anime({
@@ -159,7 +91,7 @@ document.addEventListener('click', function (e) {
             opacity: 0,
             translateY: -100,
         })
-        setTimeout(function(){
+        setTimeout(function () {
             removeElement("landing-area")
             console.log("landing removed")
         }, 500)
@@ -172,13 +104,20 @@ document.addEventListener('click', function (e) {
         marineState = !marineState
     }
 
-    if (e.target.id === "marine-fish-cod") {
+    if (e.target.id === "ground") {
+        airState = false
+        marineState = false
+        groundState = !groundState
+    }
+
+    if (e.target.id === "atlantic-mackereel") {
         overlayState = true;
         selectedArray = testArray[0]
         marineState = !marineState
     }
 
-    if (e.target.id === "marine-fish-blue-whitning") {
+    if (e.target.id === "blue-whitning") {
+        console.log("what?")
         overlayState = true;
         selectedArray = testArray[1]
         marineState = !marineState
@@ -244,14 +183,39 @@ document.addEventListener('click', function (e) {
             complete: function (anim) {
                 if (anim.complete === true) {
                     document.getElementById("marine-nav").style.display = "none"
-
-
                 }
             }
         })
 
     }
 
+    if (groundState === true) {
+        document.getElementById("ground-nav").style.display = "block"
+        document.getElementById("ground-nav").style.pointerEvents = "auto"
+        document.getElementById("ground").style.opacity = 1
+        anime({
+            targets: '#ground-nav',
+            opacity: 1,
+            easing: 'easeOutExpo',
+            duration: 200
+        })
+
+    } else {
+        document.getElementById("ground").style.opacity = .4
+        document.getElementById("ground-nav").style.pointerEvents = "none"
+        anime({
+            targets: '#ground-nav',
+            opacity: 0,
+            easing: 'easeOutExpo',
+            duration: 200,
+            complete: function (anim) {
+                if (anim.complete === true) {
+                    document.getElementById("ground-nav").style.display = "none"
+                }
+            }
+        })
+
+    }
 
     selectedSpecies = selectedArray.name;
     selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate;
@@ -265,106 +229,201 @@ document.addEventListener('click', function (e) {
 
     if (Math.floor(degreeChange * 10) / 10 > 1.9) {
         if (whatifCase === true) {
-            document.getElementById("whatif-btn").innerHTML = `<div class="whatif-btn">What if...</div>`;
+            document.getElementById("whatif-btn").innerHTML = `<button class="btn-large">What if...</button>`;
         } else {
             document.getElementById("whatif-btn").innerHTML = "";
         }
     } else {
         document.getElementById("whatif-btn").innerHTML = "";
     }
-    // relatedSpeciesArray = selectedArray.relatedSpecies
-    // relatedSpeciesHTML = displayRelatedSpecies(relatedSpeciesArray)
-    // document.getElementById("related-species-list").innerHTML = `${relatedSpeciesHTML}`
+
+})
+
+document.addEventListener("mouseover", function (e) {
+    // console.log(e.target.id)
+
+})
+
+document.addEventListener("mouseleave", function (e) {
+    // console.log(e.target.id)
 })
 
 
+var navMenuArray = {
+    marine: [
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+    ],
+    ground: [
+        {
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+        {
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+        {
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+        {
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+        {
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+        {
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+        {
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+    ]
+
+}
 
 
 
 
+function addNavMenuItem(objectArray, string) {
+    function createNavMenuItemHTML(objectArray) {
+        var mapObject = objectArray.map(function (navItem) {
+            return `<li class="two-depth-nav-item" id=${navItem.id}>
+            <img class="two-depth-nav-item-img" src=${navItem.img} alt=${navItem.string}/>
+            <div class="two-depth-nav-item-title">${navItem.string}</div>
+            </li>`
+        })
+        return mapObject.join('')
+    }
+    var navMenuHTML = createNavMenuItemHTML(objectArray)
+    var navMenuWrapper = `<div class="two-depth-nav-wrapper"><ul class="two-depth-nav-list">${navMenuHTML}</ul></div>`
+    this.document.getElementById(string).innerHTML = navMenuWrapper
+}
 
-
-// Code to remove later
-
-
-// document.addEventListener("mouseover", function (e) {
-//     if (e.target.id === "bird" || e.target.id === "bird-sub") {
-//         document.getElementById("bird-sub").style.display = "block"
-//     }
-
-//     if (e.target.id === "bee" || e.target.id === "bee-sub") {
-//         document.getElementById("bee-sub").style.display = "block"
-//     }
-
-//     if (e.target.id === "tiger" || e.target.id === "tiger-sub") {
-//         document.getElementById("tiger-sub").style.display = "block"
-//     }
-
-//     if (e.target.id === "ground-species-a" || e.target.id === "ground-species-a-sub") {
-//         document.getElementById("ground-species-a-sub").style.display = "block"
-//     }
-
-//     if (e.target.id === "ground-species-b" || e.target.id === "ground-species-b-sub") {
-//         document.getElementById("ground-species-b-sub").style.display = "block"
-//     }
-
-//     if (e.target.id === "ground-species-c" || e.target.id === "ground-species-c-sub") {
-//         document.getElementById("ground-species-c-sub").style.display = "block"
-//     }
-
-
-//     if (e.target.id === "marine-species-a" || e.target.id === "marine-species-a-sub") {
-//         document.getElementById("marine-species-a-sub").style.display = "block"
-//     }
-
-//     if (e.target.id === "marine-species-b" || e.target.id === "marine-species-b-sub") {
-//         document.getElementById("marine-species-b-sub").style.display = "block"
-//     }
-
-//     if (e.target.id === "marine-species-c" || e.target.id === "marine-species-c-sub") {
-//         document.getElementById("marine-species-c-sub").style.display = "block"
-//     }
-// })
-
-
-
-// document.addEventListener("mouseout", function (e) {
-//     if (e.target.id !== "bird" && e.target.id !== "bird-sub") {
-//         document.getElementById("bird-sub").style.display = "none"
-//     }
-
-//     if (e.target.id !== "bee" && e.target.id !== "bee-sub") {
-//         document.getElementById("bee-sub").style.display = "none"
-//     }
-
-//     if (e.target.id !== "tiger" && e.target.id !== "tiger-sub") {
-//         document.getElementById("tiger-sub").style.display = "none"
-//     }
-
-
-//     if (e.target.id !== "ground-species-a" && e.target.id !== "ground-species-a-sub") {
-//         document.getElementById("ground-species-a-sub").style.display = "none"
-//     }
-
-//     if (e.target.id !== "ground-species-b" && e.target.id !== "ground-species-b-sub") {
-//         document.getElementById("ground-species-b-sub").style.display = "none"
-//     }
-
-//     if (e.target.id !== "ground-species-c" && e.target.id !== "ground-species-c-sub") {
-//         document.getElementById("ground-species-c-sub").style.display = "none"
-//     }
-
-
-//     if (e.target.id !== "marine-species-a" && e.target.id !== "marine-species-a-sub") {
-//         document.getElementById("marine-species-a-sub").style.display = "none"
-//     }
-
-//     if (e.target.id !== "marine-species-b" && e.target.id !== "marine-species-b-sub") {
-//         document.getElementById("marine-species-b-sub").style.display = "none"
-//     }
-
-//     if (e.target.id !== "marine-species-c" && e.target.id !== "marine-species-c-sub") {
-//         document.getElementById("marine-species-c-sub").style.display = "none"
-//     }
-// })
-
+addNavMenuItem(navMenuArray.marine, "marine-nav")
+addNavMenuItem(navMenuArray.ground, "ground-nav")

@@ -1,29 +1,24 @@
 function loadJSON(callback) {
-
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'test.json', true);
+    xobj.open('GET', 'my_data.json', true);
+    // Replace 'my_data' with the path to your file
     xobj.onreadystatechange = function() {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-
-            // .open will NOT return a value but simply returns undefined in async mode so use a callback
+        if (xobj.readyState === 4 && xobj.status === 200) {
+            // Required use of an anonymous callback 
+            // as .open() will NOT return a value but simply returns undefined in asynchronous mode
             callback(xobj.responseText);
-
         }
-    }
+    };
     xobj.send(null);
-
 }
 
-// Call to function with anonymous callback
-loadJSON(function(response) {
-    // Do Something with the response e.g.
-    jsonresponse = JSON.stringify(response);
-
-    // Assuming json data is wrapped in square brackets as Drew suggests
-    console.log(response);
-
-});
+function init() {
+    loadJSON(function(response) {
+        // Parse JSON string into object
+        var actual_JSON = JSON.parse(response);
+    });
+}
 
 // Seperate array to json file
 var testArray = [{

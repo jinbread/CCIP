@@ -377,3 +377,42 @@ body::-webkit-scrollbar {
   font-size: 1.2em;
   margin: 32px 16px 48px 16px;
 }
+
+
+.popup-bottom-wrapper {
+  position: fixed;
+  width: 100%;
+  min-height: 80px;
+  bottom: 0;
+  background-color: #111;
+  color: white;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+
+}
+
+.popup-bottom-content {
+  margin: 16px;
+
+}
+
+.popup-bottom-text {
+  display: inline-block;
+  margin: 8px;
+  /* height: 100%; */
+}
+
+.btn-small {
+  display: inline-block;
+  /* height: 32px; */
+  font-size: 1.1em;
+  margin: 8px;
+  padding: 8px 16px;
+  font-weight: 600;
+  color: white;
+  background: none;
+  border: 1px solid white;
+}

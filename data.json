@@ -14,7 +14,7 @@
             "maxDecRate": 100,
             "string": "Bumblebee",
             "id": "bumblebee",
-            "whatif": "TRUE",
+            "whatif": true,
             "desc": "The bumblebee species declined in range and abundance."
         },
         {
@@ -23,7 +23,7 @@
             "maxDecRate": 100,
             "string": "Carpenter Bee",
             "id": "carpenter-bee",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "If honeybee populations continue to decline, which has become a major worry in many parts of the world,"
         },
         {
@@ -32,7 +32,7 @@
             "maxDecRate": 100,
             "string": "Mason Bee",
             "id": "mason-bee",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "climate change may drive mason bees out of warm regions as temperatures climb."
         },
         {
@@ -41,7 +41,7 @@
             "maxDecRate": 100,
             "string": "Cicada",
             "id": "cicada",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -50,7 +50,7 @@
             "maxDecRate": 100,
             "string": "Butterfly",
             "id": "butterfly",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -59,7 +59,7 @@
             "maxDecRate": 91.5,
             "string": "Forest Bird",
             "id": "forest-bird",
-            "whatif": "TRUE",
+            "whatif": true,
             "desc": "As temperatures rise, northern hardwoods will lose their advantage. We can expect to see increasingly fewer bird species associated with northern forests."
         },
         {
@@ -68,7 +68,7 @@
             "maxDecRate": 100,
             "string": "Long Distance Migrants Bird",
             "id": "long-distance-migrants-bird",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Long-distance migratory birds threatened by multiple independent risks from global change."
         },
         {
@@ -77,7 +77,7 @@
             "maxDecRate": 100,
             "string": "Snowy Plover",
             "id": "snowy-plover",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Coastal-nesting birds such as snowy plover are among the most threatened by climate change."
         },
         {
@@ -86,7 +86,7 @@
             "maxDecRate": 36,
             "string": "Ivory Gull",
             "id": "ivory-gull",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "There is growing concern in the circumpolar Arctic that the Ivory Gull may be in decline."
         },
         {
@@ -95,7 +95,7 @@
             "maxDecRate": 17.5,
             "string": "Adélie Penguin",
             "id": "adelie-penguin",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "It is only in recent decades that we know Adélie penguins population declines are associated with warming."
         },
         {
@@ -104,7 +104,7 @@
             "maxDecRate": 80,
             "string": "Snake",
             "id": "snake",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Many reptiles are highly sensitive to the altered temperatures."
         },
         {
@@ -113,7 +113,7 @@
             "maxDecRate": 80,
             "string": "Lizard",
             "id": "lizard",
-            "whatif": "TRUE",
+            "whatif": true,
             "desc": "Many reptiles are highly sensitive to the altered temperatures."
         },
         {
@@ -122,7 +122,7 @@
             "maxDecRate": 100,
             "string": "Frog",
             "id": "frog",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "First consider that for over 20 years, amphibians have been globally recognized as declining"
         },
         {
@@ -131,7 +131,7 @@
             "maxDecRate": 100,
             "string": "Newt",
             "id": "newt",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "First consider that for over 20 years, amphibians have been globally recognized as declining"
         },
         {
@@ -140,7 +140,7 @@
             "maxDecRate": 100,
             "string": "Toad",
             "id": "toad",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "First consider that for over 20 years, amphibians have been globally recognized as declining"
         },
         {
@@ -149,7 +149,7 @@
             "maxDecRate": 100,
             "string": "Spring Peeper",
             "id": "spring-peeper",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "First consider that for over 20 years, amphibians have been globally recognized as declining"
         },
         {
@@ -158,7 +158,7 @@
             "maxDecRate": 80,
             "string": "Crocodilian",
             "id": "crocodilian",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Many reptiles are highly sensitive to the altered temperatures."
         },
         {
@@ -167,7 +167,7 @@
             "maxDecRate": 80,
             "string": "Gecko",
             "id": "gecko",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Many reptiles are highly sensitive to the altered temperatures."
         },
         {
@@ -176,7 +176,7 @@
             "maxDecRate": 100,
             "string": "Turtles",
             "id": "turtles",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Many reptiles are highly sensitive to the altered temperatures."
         },
         {
@@ -185,7 +185,7 @@
             "maxDecRate": 51.25,
             "string": "Tiger",
             "id": "tiger",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Tigers are among the world’s most threatened species."
         },
         {
@@ -194,7 +194,7 @@
             "maxDecRate": 51.25,
             "string": "Lion",
             "id": "lion",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "African lion numbers have dropped by 42% over the last two decades."
         },
         {
@@ -203,7 +203,7 @@
             "maxDecRate": 1.9,
             "string": "Monkey",
             "id": "monkey",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -212,7 +212,7 @@
             "maxDecRate": 1.9,
             "string": "Gorilla",
             "id": "gorilla",
-            "whatif": "TRUE",
+            "whatif": true,
             "desc": "TBD"
         },
         {
@@ -221,7 +221,7 @@
             "maxDecRate": 1.9,
             "string": "Orangutan",
             "id": "orangutan",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -230,7 +230,7 @@
             "maxDecRate": 1.9,
             "string": "Chimpanzee",
             "id": "chimpanzee",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -239,7 +239,7 @@
             "maxDecRate": 43,
             "string": "Polar Bear",
             "id": "polar-bear",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Polar bears are the poster child for the impacts of climate change on species."
         },
         {
@@ -248,7 +248,7 @@
             "maxDecRate": 40,
             "string": "Walruses",
             "id": "walruses",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -257,7 +257,7 @@
             "maxDecRate": 22.25,
             "string": "Seals",
             "id": "seals",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -266,7 +266,7 @@
             "maxDecRate": 48,
             "string": "Sea Lions",
             "id": "sea-lions",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -275,7 +275,7 @@
             "maxDecRate": 68,
             "string": "Quiver Tree",
             "id": "quiver-tree",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "The quiver Tree’s range show that average temperatures in the region have increased over past decades"
         },
         {
@@ -284,7 +284,7 @@
             "maxDecRate": 88.3,
             "string": "Banana",
             "id": "banana",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Climate change is helping spread a fungus that attacks bananas."
         },
         {
@@ -293,7 +293,7 @@
             "maxDecRate": 55.75,
             "string": "Cacao",
             "id": "cacao",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Overall, thus potentially would wipe out almost a third of global cacao bean production in the process."
         },
         {
@@ -302,7 +302,7 @@
             "maxDecRate": 41,
             "string": "Barley",
             "id": "barley",
-            "whatif": "TRUE",
+            "whatif": true,
             "desc": "Warming climate threatens world's beer supply since the barley which is the main ingredient in beer is likely to drop substantially because severe droughts and heat extremes will become more frequent as the climate changes."
         },
         {
@@ -311,7 +311,7 @@
             "maxDecRate": 27,
             "string": "Wheat",
             "id": "wheat",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Due to climate change, the trend in wheat phenology significantly advanced."
         },
         {
@@ -320,7 +320,7 @@
             "maxDecRate": 24,
             "string": "Corn",
             "id": "corn",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "African corn yields could reduce by 20% if temperatures continue to rise"
         },
         {
@@ -329,7 +329,7 @@
             "maxDecRate": 23,
             "string": "Korean Rice",
             "id": "korean-rice",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "There will be a one-third decline in per-capita crop such as rice production in Southeast Asia if it’s 2 degrees hotter."
         },
         {
@@ -338,7 +338,7 @@
             "maxDecRate": 88.3,
             "string": "Coffee",
             "id": "coffee",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -347,7 +347,7 @@
             "maxDecRate": 70,
             "string": "Coral",
             "id": "coral",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Corals cannot survive the frequency of current bleaching events from global temperature rise."
         },
         {
@@ -356,7 +356,7 @@
             "maxDecRate": 70,
             "string": "Seagrass",
             "id": "seagrass",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -365,7 +365,7 @@
             "maxDecRate": 2.5,
             "string": "Mangroves",
             "id": "mangroves",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -374,7 +374,7 @@
             "maxDecRate": 70,
             "string": "Benthic Crustacea",
             "id": "benthic-crustacea",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -383,7 +383,7 @@
             "maxDecRate": 2.5,
             "string": "Phytoplankton",
             "id": "phytoplankton",
-            "whatif": "TRUE",
+            "whatif": true,
             "desc": "Depending on location, these include both dramatic increases and\ndecreases changes in distribution of phytoplankton over the past several decades."
         },
         {
@@ -392,7 +392,7 @@
             "maxDecRate": 2.5,
             "string": "Zooplankton",
             "id": "zooplankton",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -401,7 +401,7 @@
             "maxDecRate": 70,
             "string": "Shark",
             "id": "shark",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "The global warming has made it difficult for sharks to continue surviving."
         },
         {
@@ -410,7 +410,7 @@
             "maxDecRate": 66,
             "string": "Anchoveta",
             "id": "anchoveta",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -419,7 +419,7 @@
             "maxDecRate": 56,
             "string": "Blue Whiting",
             "id": "blue whiting",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -428,7 +428,7 @@
             "maxDecRate": 17,
             "string": "Atlantic Mackerel",
             "id": "atlantic-mackerel",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -437,7 +437,7 @@
             "maxDecRate": 90,
             "string": "Jumbo Flying Squid",
             "id": "jumbo-flying-squid",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -446,7 +446,7 @@
             "maxDecRate": 22,
             "string": "Scads Nei",
             "id": "scads-nei",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -455,7 +455,7 @@
             "maxDecRate": 8,
             "string": "Largehead Hairtail",
             "id": "largehead-hairtail",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -464,7 +464,7 @@
             "maxDecRate": 9.6,
             "string": "Japanese Anchovy",
             "id": "japanese-anchovy",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -473,7 +473,7 @@
             "maxDecRate": 24,
             "string": "Cod",
             "id": "cod",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -482,7 +482,7 @@
             "maxDecRate": 35,
             "string": "Oyster",
             "id": "oyster",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -491,7 +491,7 @@
             "maxDecRate": 24,
             "string": "Mussel",
             "id": "mussel",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "TBD"
         },
         {
@@ -500,7 +500,7 @@
             "maxDecRate": 0,
             "string": "Tin Can",
             "id": "tin-can",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "NA"
         },
         {
@@ -509,7 +509,7 @@
             "maxDecRate": 0,
             "string": "Aluminum Can",
             "id": "aluminum-can",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "NA"
         },
         {
@@ -518,7 +518,7 @@
             "maxDecRate": 0,
             "string": "Light Bulb",
             "id": "light-bulb",
-            "whatif": "TRUE",
+            "whatif": true,
             "desc": "Light bulb waste takes trash to decompose over than ten million years."
         },
         {
@@ -527,7 +527,7 @@
             "maxDecRate": 0,
             "string": "Glass Bottle",
             "id": "glass-bottle",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Glass bottle takes trash to decompose over than ten million years."
         },
         {
@@ -536,7 +536,7 @@
             "maxDecRate": 0,
             "string": "Plastic Bottle",
             "id": "plastic-bottle",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "NA"
         },
         {
@@ -545,7 +545,7 @@
             "maxDecRate": 0,
             "string": "Fishing Line",
             "id": "fishing-line",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "NA"
         },
         {
@@ -554,7 +554,7 @@
             "maxDecRate": 0,
             "string": "Disposable Diaper",
             "id": "disposable-diaper",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Disposable diaper takes trash to decompose over than 100 years."
         },
         {
@@ -563,7 +563,7 @@
             "maxDecRate": 0,
             "string": "Styrofoam",
             "id": "styrofoam",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Styrofoam takes trash to decompose over than 500 years."
         },
         {
@@ -572,7 +572,7 @@
             "maxDecRate": 0,
             "string": "Ink Cartridge",
             "id": "ink-cartridge",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Ink cartridge takes trash to decompose over than 500 years."
         },
         {
@@ -581,7 +581,7 @@
             "maxDecRate": 0,
             "string": "Plastic Bag",
             "id": "plastic-bag",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Plastic bag takes trash to decompose over than 100 years."
         },
         {
@@ -590,7 +590,7 @@
             "maxDecRate": 0,
             "string": "Toothbrush",
             "id": "toothbrush",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "NA"
         },
         {
@@ -599,7 +599,7 @@
             "maxDecRate": 0,
             "string": "Electronic Waste",
             "id": "electronic-waste",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Electronic waste takes trash to decompose over than 500 years."
         },
         {
@@ -608,7 +608,7 @@
             "maxDecRate": 0,
             "string": "Nylon Fabric",
             "id": "nylon-fabric",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Nylon fabric waste takes trash to decompose over than 30-40 years."
         },
         {
@@ -617,7 +617,7 @@
             "maxDecRate": 0,
             "string": "Leather Shoe",
             "id": "leather-shoe",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "Leather shoe waste takes trash to decompose over than        25-40 years."
         },
         {
@@ -626,7 +626,7 @@
             "maxDecRate": 0,
             "string": "Wooden Chopsticks",
             "id": "wooden-chopsticks",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "NA"
         },
         {
@@ -635,7 +635,7 @@
             "maxDecRate": 0,
             "string": "Cigarette Filter",
             "id": "cigarette-filter",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "NA"
         },
         {
@@ -644,7 +644,7 @@
             "maxDecRate": 0,
             "string": "Carton",
             "id": "carton",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "The carton waste takes trash to decompose over than 5 years."
         },
         {
@@ -653,7 +653,7 @@
             "maxDecRate": 0,
             "string": "Fishing Nets",
             "id": "fishing-nets",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "NA"
         },
         {
@@ -662,7 +662,7 @@
             "maxDecRate": 0,
             "string": "Old Tires",
             "id": "old-tires",
-            "whatif": "FALSE",
+            "whatif": false,
             "desc": "NA"
         }
     ]

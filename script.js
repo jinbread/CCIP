@@ -8,6 +8,7 @@ var verticalHeight = 20000;
 // Selected Species and max decrease rate will be assigned based on user input(click)
 var selectedArray;
 var selectedSpecies;
+var selectedKey;
 var descText;
 var whatifCase;
 var selectedSpeciesMaxDecreaseRate;
@@ -147,11 +148,13 @@ loadJSON(function (response) {
             artificialState = false;
         }
 
+
         if (e.target.className === "two-depth-nav-item") {
             if (e.target.id === navMenuArray.filter(species => species.id === e.target.id)[0].id) {
                 selectedArray = navMenuArray.filter(species => species.id == e.target.id)[0]
                 selectedSpecies = selectedArray.string;
                 selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate;
+                selectedKey = selectedArray.key
                 descText = selectedArray.desc;
                 whatifCase = selectedArray.whatif
 
@@ -197,7 +200,7 @@ window.addEventListener("scroll", function (e) {
 
     document.getElementById("degree-change").innerHTML = Math.floor(degreeChange * 10) / 10;
     // Set for scroll pixel debugging. 
-    // console.log("page Y Offset: " + this.window.pageYOffset)
+    // consol   e.log("page Y Offset: " + this.window.pageYOffset)
 
     decreaseRate = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * selectedSpeciesMaxDecreaseRate;
     this.document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
@@ -231,6 +234,17 @@ document.getElementById("explore-btn").addEventListener('click', function (e) {
     setTimeout(function () {
         removeElement("landing-area")
         console.log("landing removed")
+    }, 500)
+})
+
+document.getElementById("privacy-btn").addEventListener('click', function (e) {
+    anime({
+        targets: "#privacy-popup",
+        opacity: 0,
+        // translateY: 100,
+    })
+    setTimeout(function () {
+        removeElement("privacy-popup")
     }, 500)
 })
 

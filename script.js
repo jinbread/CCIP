@@ -1,207 +1,3 @@
-function loadJSON(callback) {
-
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'test.json', true);
-    xobj.onreadystatechange = function() {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-
-            // .open will NOT return a value but simply returns undefined in async mode so use a callback
-            callback(xobj.responseText);
-
-        }
-    }
-    xobj.send(null);
-
-}
-
-// Call to function with anonymous callback
-loadJSON(function(response) {
-    // Do Something with the response e.g.
-    jsonresponse = JSON.stringify(response);
-
-    // Assuming json data is wrapped in square brackets as Drew suggests
-    console.log(response);
-
-});
-
-// Seperate array to json file
-var testArray = [{
-        name: "Atlantic Mackereel",
-        maxDecRate: 40,
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-        whatif: true,
-    },
-    {
-        name: "Blue Whitning",
-        maxDecRate: 100,
-        desc: "Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
-        whatif: false,
-    },
-    {
-        name: "Species Three",
-        maxDecRate: 70,
-    }
-]
-
-var navMenuArray = {
-    marine: [{
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-    ],
-    ground: [{
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-        {
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-        {
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-        {
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-        {
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-        {
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-        {
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-    ]
-
-}
-
-
-
 var degreeChange;
 var decreaseRate;
 
@@ -209,17 +5,115 @@ var decreaseRate;
 var verticalHeight = 20000;
 
 // Selected Species and max decrease rate will be assigned based on user input(click)
-var selectedArray = testArray[0]
-var selectedSpecies = selectedArray.name
-var descText = selectedArray.desc
-var whatifCase = selectedArray.whatif
-var selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate
+var selectedArray;
+var selectedSpecies;
+var descText;
+var whatifCase;
+var selectedSpeciesMaxDecreaseRate;
 
-function removeElement(elementId) {
-    // Removes an element from the document.
-    var element = document.getElementById(elementId);
-    element.remove(element);
+// Top Nav Bar Interaction 
+var navMenuArray;
+var groundState = false;
+var insectState = false;
+var marineState = false;
+var overlayState = false;
+
+// Initialize overlay area animation
+anime({
+    targets: '#overlay-area',
+    translateX: 0,
+    opacity: 0,
+    duration: 0
+})
+
+anime({
+    targets: '.overlay-wrapper',
+    translateY: 40,
+})
+
+function loadJSON(callback) {
+
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'test.json', true);
+    xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+
+            // .open will NOT return a value but simply returns undefined in async mode so use a callback
+            callback(JSON.parse(xobj.responseText));
+        }
+    }
+    xobj.send(null);
 }
+
+// Call to function with anonymous callback
+loadJSON(function (response) {
+    navMenuArray = response.species
+    categoryArray = response.category
+    console.log(categoryArray)
+
+    addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[0]), `${categoryArray[0]}-nav`)
+    // addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[1]), `${categoryArray[1]}-nav`)
+    // addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[2]), `${categoryArray[2]}-nav`)
+    // addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[3]), `${categoryArray[3]}-nav`)
+    // addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[4]), `${categoryArray[4]}-nav`)
+    addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[5]), `${categoryArray[5]}-nav`)
+    // addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[6]), `${categoryArray[6]}-nav`)
+ 
+    document.addEventListener('click', function (e) {
+
+        if (e.target.id === "insect") {
+            insectState = !insectState
+            marineState = false;
+        }
+        changeNavMenuState(insectState, "insect")
+
+        if (e.target.id === "marine") {
+            insectState = false;
+            marineState = !marineState
+        }
+        changeNavMenuState(marineState, "marine")
+
+        if (e.target.id === "home" || e.target.id === "back-btn") {
+            overlayState = false;
+            insectState = false;
+            marineState = false;
+        }
+        changeOverlayState(overlayState)
+
+        if (e.target.className === "two-depth-nav-item") {
+            if (e.target.id === navMenuArray.filter(species => species.id === e.target.id)[0].id) {
+                selectedArray = navMenuArray.filter(species => species.id == e.target.id)[0]
+                selectedSpecies = selectedArray.string;
+                selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate;
+                descText = selectedArray.desc;
+                whatifCase = selectedArray.whatif
+
+                overlayState = true;
+                insectState = false;
+                marineState = false;
+            }
+        }
+        changeNavMenuState(insectState, "insect")
+        changeNavMenuState(marineState, "marine")
+        changeOverlayState(overlayState)
+
+        decreaseRate = (window.pageYOffset / (verticalHeight - window.innerHeight)) * selectedSpeciesMaxDecreaseRate;
+        document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
+        document.getElementById("desc-text").innerHTML = descText;
+        document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0) + "%";
+
+        if (Math.floor(degreeChange * 10) / 10 > 1.9) {
+            if (whatifCase === true) {
+                document.getElementById("whatif-btn").innerHTML = `<button class="btn-large">What if...</button>`;
+            } else {
+                document.getElementById("whatif-btn").innerHTML = "";
+            }
+        } else {
+            document.getElementById("whatif-btn").innerHTML = "";
+        }
+    })
+});
 
 // Scroll Interaction
 window.addEventListener("scroll", function (e) {
@@ -247,75 +141,70 @@ window.addEventListener("scroll", function (e) {
 
 });
 
+function removeElement(elementId) {
+    var element = document.getElementById(elementId);
+    element.remove(element);
+}
 
-
-// Nav Button Interaction 
-var airState = false;
-var groundState = false;
-var marineState = false;
-var overlayState = false;
-
-anime({
-    targets: '#overlay-area',
-    translateX: 0,
-    opacity: 0,
-    duration: 0
+document.getElementById("explore-btn").addEventListener('click', function (e) {
+    anime({
+        targets: "#landing-area",
+        opacity: 0,
+        translateY: -100,
+    })
+    setTimeout(function () {
+        removeElement("landing-area")
+        console.log("landing removed")
+    }, 500)
 })
 
-anime({
-    targets: '.overlay-wrapper',
-    translateY: 40,
-})
-
-document.addEventListener('click', function (e) {
-    // console.log(e.target.id)
-
-    if (e.target.id === "explore-btn") {
-        anime({
-            targets: "#landing-area",
-            opacity: 0,
-            translateY: -100,
+function addNavMenuItem(objectArray, string) {
+    function createNavMenuItemHTML(objectArray) {
+        var mapObject = objectArray.map(function (navItem) {
+            return `<li class="two-depth-nav-item" id=${navItem.id}>
+            <img class="two-depth-nav-item-img" src=\"img/${navItem.id}.png\" alt=${navItem.string}/>
+            <div class="two-depth-nav-item-title">${navItem.string}</div>
+            </li>`
         })
-        setTimeout(function () {
-            removeElement("landing-area")
-            console.log("landing removed")
-        }, 500)
-
+        return mapObject.join('')
     }
+    var navMenuHTML = createNavMenuItemHTML(objectArray)
+    var navMenuWrapper = `<div class="two-depth-nav-wrapper"><ul class="two-depth-nav-list">${navMenuHTML}</ul></div>`
+    this.document.getElementById(string).innerHTML = navMenuWrapper
+}
 
-    if (e.target.id === "marine") {
-        airState = false
-        groundState = false
-        marineState = !marineState
+function changeNavMenuState(categoryState, category) {
+    if (categoryState === true) {
+        document.getElementById(`${category}-nav`).style.display = "block"
+        document.getElementById(`${category}-nav`).style.pointerEvents = "auto"
+        document.getElementById(category).style.opacity = 1
+        anime({
+            targets: `#${category}-nav`,
+            opacity: 1,
+            easing: 'easeOutExpo',
+            duration: 200
+        })
+
+    } else {
+        // console.log("run close anim")
+        document.getElementById(category).style.opacity = .4
+        document.getElementById(`${category}-nav`).style.pointerEvents = "none"
+        anime({
+            targets: `#${category}-nav`,
+            opacity: 0,
+            easing: 'easeOutExpo',
+            duration: 200,
+            complete: function (anim) {
+                if (anim.complete === true) {
+                    document.getElementById(`#${category}-nav`).style.display = "none"
+                }
+            }
+        })
     }
+}
 
-    if (e.target.id === "ground") {
-        airState = false
-        marineState = false
-        groundState = !groundState
-    }
-
-    if (e.target.id === "atlantic-mackereel") {
-        overlayState = true;
-        selectedArray = testArray[0]
-        marineState = !marineState
-    }
-
-    if (e.target.id === "blue-whitning") {
-        console.log("what?")
-        overlayState = true;
-        selectedArray = testArray[1]
-        marineState = !marineState
-    }
-
-    if (e.target.id === "home" || e.target.id === "back-btn") {
-        overlayState = false;
-        marineState = false;
-        airState = false;
-        groundState = false;
-    }
-
-    if (overlayState === true) {
+function changeOverlayState(state) {
+    if (state === true) {
         document.getElementById("overlay-area").style.display = "block"
         anime({
             targets: '#overlay-area',
@@ -345,113 +234,4 @@ document.addEventListener('click', function (e) {
         })
 
     }
-
-    if (marineState === true) {
-        document.getElementById("marine-nav").style.display = "block"
-        document.getElementById("marine-nav").style.pointerEvents = "auto"
-        document.getElementById("marine").style.opacity = 1
-        anime({
-            targets: '#marine-nav',
-            opacity: 1,
-            easing: 'easeOutExpo',
-            duration: 200
-        })
-
-    } else {
-        document.getElementById("marine").style.opacity = .4
-        document.getElementById("marine-nav").style.pointerEvents = "none"
-        anime({
-            targets: '#marine-nav',
-            opacity: 0,
-            easing: 'easeOutExpo',
-            duration: 200,
-            complete: function (anim) {
-                if (anim.complete === true) {
-                    document.getElementById("marine-nav").style.display = "none"
-                }
-            }
-        })
-
-    }
-
-    if (groundState === true) {
-        document.getElementById("ground-nav").style.display = "block"
-        document.getElementById("ground-nav").style.pointerEvents = "auto"
-        document.getElementById("ground").style.opacity = 1
-        anime({
-            targets: '#ground-nav',
-            opacity: 1,
-            easing: 'easeOutExpo',
-            duration: 200
-        })
-
-    } else {
-        document.getElementById("ground").style.opacity = .4
-        document.getElementById("ground-nav").style.pointerEvents = "none"
-        anime({
-            targets: '#ground-nav',
-            opacity: 0,
-            easing: 'easeOutExpo',
-            duration: 200,
-            complete: function (anim) {
-                if (anim.complete === true) {
-                    document.getElementById("ground-nav").style.display = "none"
-                }
-            }
-        })
-
-    }
-
-    selectedSpecies = selectedArray.name;
-    selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate;
-    descText = selectedArray.desc;
-    whatifCase = selectedArray.whatif
-
-    decreaseRate = (window.pageYOffset / (verticalHeight - window.innerHeight)) * selectedSpeciesMaxDecreaseRate;
-    document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
-    document.getElementById("desc-text").innerHTML = descText;
-    document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0) + "%";
-
-    if (Math.floor(degreeChange * 10) / 10 > 1.9) {
-        if (whatifCase === true) {
-            document.getElementById("whatif-btn").innerHTML = `<button class="btn-large">What if...</button>`;
-        } else {
-            document.getElementById("whatif-btn").innerHTML = "";
-        }
-    } else {
-        document.getElementById("whatif-btn").innerHTML = "";
-    }
-
-})
-
-document.addEventListener("mouseover", function (e) {
-    // console.log(e.target.id)
-
-})
-
-document.addEventListener("mouseleave", function (e) {
-    // console.log(e.target.id)
-})
-
-
-
-
-
-
-function addNavMenuItem(objectArray, string) {
-    function createNavMenuItemHTML(objectArray) {
-        var mapObject = objectArray.map(function (navItem) {
-            return `<li class="two-depth-nav-item" id=${navItem.id}>
-            <img class="two-depth-nav-item-img" src=${navItem.img} alt=${navItem.string}/>
-            <div class="two-depth-nav-item-title">${navItem.string}</div>
-            </li>`
-        })
-        return mapObject.join('')
-    }
-    var navMenuHTML = createNavMenuItemHTML(objectArray)
-    var navMenuWrapper = `<div class="two-depth-nav-wrapper"><ul class="two-depth-nav-list">${navMenuHTML}</ul></div>`
-    this.document.getElementById(string).innerHTML = navMenuWrapper
 }
-
-addNavMenuItem(navMenuArray.marine, "marine-nav")
-addNavMenuItem(navMenuArray.ground, "ground-nav")

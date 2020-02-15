@@ -1,0 +1,669 @@
+{
+    "category": [
+        "insect",
+        "bird",
+        "reptile-and-amphibian",
+        "mammal",
+        "plant",
+        "marine",
+        "artificial"
+    ],
+    "species": [{
+            "key": 1,
+            "category": "insect",
+            "maxDecRate": 100,
+            "string": "Bumblebee",
+            "id": "bumblebee",
+            "whatif": "TRUE",
+            "desc": "The bumblebee species declined in range and abundance."
+        },
+        {
+            "key": 2,
+            "category": "insect",
+            "maxDecRate": 100,
+            "string": "Carpenter Bee",
+            "id": "carpenter-bee",
+            "whatif": "FALSE",
+            "desc": "If honeybee populations continue to decline, which has become a major worry in many parts of the world,"
+        },
+        {
+            "key": 3,
+            "category": "insect",
+            "maxDecRate": 100,
+            "string": "Mason Bee",
+            "id": "mason-bee",
+            "whatif": "FALSE",
+            "desc": "climate change may drive mason bees out of warm regions as temperatures climb."
+        },
+        {
+            "key": 4,
+            "category": "insect",
+            "maxDecRate": 100,
+            "string": "Cicada",
+            "id": "cicada",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 5,
+            "category": "insect",
+            "maxDecRate": 100,
+            "string": "Butterfly",
+            "id": "butterfly",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 6,
+            "category": "bird",
+            "maxDecRate": 91.5,
+            "string": "Forest Bird",
+            "id": "forest-bird",
+            "whatif": "TRUE",
+            "desc": "As temperatures rise, northern hardwoods will lose their advantage. We can expect to see increasingly fewer bird species associated with northern forests."
+        },
+        {
+            "key": 7,
+            "category": "bird",
+            "maxDecRate": 100,
+            "string": "Long Distance Migrants Bird",
+            "id": "long-distance-migrants-bird",
+            "whatif": "FALSE",
+            "desc": "Long-distance migratory birds threatened by multiple independent risks from global change."
+        },
+        {
+            "key": 8,
+            "category": "bird",
+            "maxDecRate": 100,
+            "string": "Snowy Plover",
+            "id": "snowy-plover",
+            "whatif": "FALSE",
+            "desc": "Coastal-nesting birds such as snowy plover are among the most threatened by climate change."
+        },
+        {
+            "key": 9,
+            "category": "bird",
+            "maxDecRate": 36,
+            "string": "Ivory Gull",
+            "id": "ivory-gull",
+            "whatif": "FALSE",
+            "desc": "There is growing concern in the circumpolar Arctic that the Ivory Gull may be in decline."
+        },
+        {
+            "key": 10,
+            "category": "bird",
+            "maxDecRate": 17.5,
+            "string": "Adélie Penguin",
+            "id": "adelie-penguin",
+            "whatif": "FALSE",
+            "desc": "It is only in recent decades that we know Adélie penguins population declines are associated with warming."
+        },
+        {
+            "key": 11,
+            "category": "reptile-and-amphibian",
+            "maxDecRate": 80,
+            "string": "Snake",
+            "id": "snake",
+            "whatif": "FALSE",
+            "desc": "Many reptiles are highly sensitive to the altered temperatures."
+        },
+        {
+            "key": 12,
+            "category": "reptile-and-amphibian",
+            "maxDecRate": 80,
+            "string": "Lizard",
+            "id": "lizard",
+            "whatif": "TRUE",
+            "desc": "Many reptiles are highly sensitive to the altered temperatures."
+        },
+        {
+            "key": 13,
+            "category": "reptile-and-amphibian",
+            "maxDecRate": 100,
+            "string": "Frog",
+            "id": "frog",
+            "whatif": "FALSE",
+            "desc": "First consider that for over 20 years, amphibians have been globally recognized as declining"
+        },
+        {
+            "key": 14,
+            "category": "reptile-and-amphibian",
+            "maxDecRate": 100,
+            "string": "Newt",
+            "id": "newt",
+            "whatif": "FALSE",
+            "desc": "First consider that for over 20 years, amphibians have been globally recognized as declining"
+        },
+        {
+            "key": 15,
+            "category": "reptile-and-amphibian",
+            "maxDecRate": 100,
+            "string": "Toad",
+            "id": "toad",
+            "whatif": "FALSE",
+            "desc": "First consider that for over 20 years, amphibians have been globally recognized as declining"
+        },
+        {
+            "key": 16,
+            "category": "reptile-and-amphibian",
+            "maxDecRate": 100,
+            "string": "Spring Peeper",
+            "id": "spring-peeper",
+            "whatif": "FALSE",
+            "desc": "First consider that for over 20 years, amphibians have been globally recognized as declining"
+        },
+        {
+            "key": 17,
+            "category": "reptile-and-amphibian",
+            "maxDecRate": 80,
+            "string": "Crocodilian",
+            "id": "crocodilian",
+            "whatif": "FALSE",
+            "desc": "Many reptiles are highly sensitive to the altered temperatures."
+        },
+        {
+            "key": 18,
+            "category": "reptile-and-amphibian",
+            "maxDecRate": 80,
+            "string": "Gecko",
+            "id": "gecko",
+            "whatif": "FALSE",
+            "desc": "Many reptiles are highly sensitive to the altered temperatures."
+        },
+        {
+            "key": 19,
+            "category": "reptile-and-amphibian",
+            "maxDecRate": 100,
+            "string": "Turtles",
+            "id": "turtles",
+            "whatif": "FALSE",
+            "desc": "Many reptiles are highly sensitive to the altered temperatures."
+        },
+        {
+            "key": 20,
+            "category": "mammal",
+            "maxDecRate": 51.25,
+            "string": "Tiger",
+            "id": "tiger",
+            "whatif": "FALSE",
+            "desc": "Tigers are among the world’s most threatened species."
+        },
+        {
+            "key": 21,
+            "category": "mammal",
+            "maxDecRate": 51.25,
+            "string": "Lion",
+            "id": "lion",
+            "whatif": "FALSE",
+            "desc": "African lion numbers have dropped by 42% over the last two decades."
+        },
+        {
+            "key": 22,
+            "category": "mammal",
+            "maxDecRate": 1.9,
+            "string": "Monkey",
+            "id": "monkey",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 23,
+            "category": "mammal",
+            "maxDecRate": 1.9,
+            "string": "Gorilla",
+            "id": "gorilla",
+            "whatif": "TRUE",
+            "desc": "TBD"
+        },
+        {
+            "key": 24,
+            "category": "mammal",
+            "maxDecRate": 1.9,
+            "string": "Orangutan",
+            "id": "orangutan",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 25,
+            "category": "mammal",
+            "maxDecRate": 1.9,
+            "string": "Chimpanzee",
+            "id": "chimpanzee",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 26,
+            "category": "mammal",
+            "maxDecRate": 43,
+            "string": "Polar Bear",
+            "id": "polar-bear",
+            "whatif": "FALSE",
+            "desc": "Polar bears are the poster child for the impacts of climate change on species."
+        },
+        {
+            "key": 27,
+            "category": "mammal",
+            "maxDecRate": 40,
+            "string": "Walruses",
+            "id": "walruses",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 28,
+            "category": "mammal",
+            "maxDecRate": 22.25,
+            "string": "Seals",
+            "id": "seals",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 29,
+            "category": "mammal",
+            "maxDecRate": 48,
+            "string": "Sea Lions",
+            "id": "sea-lions",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 30,
+            "category": "plant",
+            "maxDecRate": 68,
+            "string": "Quiver Tree",
+            "id": "quiver-tree",
+            "whatif": "FALSE",
+            "desc": "The quiver Tree’s range show that average temperatures in the region have increased over past decades"
+        },
+        {
+            "key": 31,
+            "category": "plant",
+            "maxDecRate": 88.3,
+            "string": "Banana",
+            "id": "banana",
+            "whatif": "FALSE",
+            "desc": "Climate change is helping spread a fungus that attacks bananas."
+        },
+        {
+            "key": 32,
+            "category": "plant",
+            "maxDecRate": 55.75,
+            "string": "Cacao",
+            "id": "cacao",
+            "whatif": "FALSE",
+            "desc": "Overall, thus potentially would wipe out almost a third of global cacao bean production in the process."
+        },
+        {
+            "key": 33,
+            "category": "plant",
+            "maxDecRate": 41,
+            "string": "Barley",
+            "id": "barley",
+            "whatif": "TRUE",
+            "desc": "Warming climate threatens world's beer supply since the barley which is the main ingredient in beer is likely to drop substantially because severe droughts and heat extremes will become more frequent as the climate changes."
+        },
+        {
+            "key": 34,
+            "category": "plant",
+            "maxDecRate": 27,
+            "string": "Wheat",
+            "id": "wheat",
+            "whatif": "FALSE",
+            "desc": "Due to climate change, the trend in wheat phenology significantly advanced."
+        },
+        {
+            "key": 35,
+            "category": "plant",
+            "maxDecRate": 24,
+            "string": "Corn",
+            "id": "corn",
+            "whatif": "FALSE",
+            "desc": "African corn yields could reduce by 20% if temperatures continue to rise"
+        },
+        {
+            "key": 36,
+            "category": "plant",
+            "maxDecRate": 23,
+            "string": "Korean Rice",
+            "id": "korean-rice",
+            "whatif": "FALSE",
+            "desc": "There will be a one-third decline in per-capita crop such as rice production in Southeast Asia if it’s 2 degrees hotter."
+        },
+        {
+            "key": 37,
+            "category": "plant",
+            "maxDecRate": 88.3,
+            "string": "Coffee",
+            "id": "coffee",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 38,
+            "category": "plant",
+            "maxDecRate": 70,
+            "string": "Coral",
+            "id": "coral",
+            "whatif": "FALSE",
+            "desc": "Corals cannot survive the frequency of current bleaching events from global temperature rise."
+        },
+        {
+            "key": 39,
+            "category": "plant",
+            "maxDecRate": 70,
+            "string": "Seagrass",
+            "id": "seagrass",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 40,
+            "category": "plant",
+            "maxDecRate": 2.5,
+            "string": "Mangroves",
+            "id": "mangroves",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 41,
+            "category": "marine",
+            "maxDecRate": 70,
+            "string": "Benthic Crustacea",
+            "id": "benthic-crustacea",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 42,
+            "category": "marine",
+            "maxDecRate": 2.5,
+            "string": "Phytoplankton",
+            "id": "phytoplankton",
+            "whatif": "TRUE",
+            "desc": "Depending on location, these include both dramatic increases and\ndecreases changes in distribution of phytoplankton over the past several decades."
+        },
+        {
+            "key": 43,
+            "category": "marine",
+            "maxDecRate": 2.5,
+            "string": "Zooplankton",
+            "id": "zooplankton",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 44,
+            "category": "marine",
+            "maxDecRate": 70,
+            "string": "Shark",
+            "id": "shark",
+            "whatif": "FALSE",
+            "desc": "The global warming has made it difficult for sharks to continue surviving."
+        },
+        {
+            "key": 45,
+            "category": "marine",
+            "maxDecRate": 66,
+            "string": "Anchoveta",
+            "id": "anchoveta",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 46,
+            "category": "marine",
+            "maxDecRate": 56,
+            "string": "Blue Whiting",
+            "id": "blue whiting",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 47,
+            "category": "marine",
+            "maxDecRate": 17,
+            "string": "Atlantic Mackerel",
+            "id": "atlantic-mackerel",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 48,
+            "category": "marine",
+            "maxDecRate": 90,
+            "string": "Jumbo Flying Squid",
+            "id": "jumbo-flying-squid",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 49,
+            "category": "marine",
+            "maxDecRate": 22,
+            "string": "Scads Nei",
+            "id": "scads-nei",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 50,
+            "category": "marine",
+            "maxDecRate": 8,
+            "string": "Largehead Hairtail",
+            "id": "largehead-hairtail",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 51,
+            "category": "marine",
+            "maxDecRate": 9.6,
+            "string": "Japanese Anchovy",
+            "id": "japanese-anchovy",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 52,
+            "category": "marine",
+            "maxDecRate": 24,
+            "string": "Cod",
+            "id": "cod",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 53,
+            "category": "marine",
+            "maxDecRate": 35,
+            "string": "Oyster",
+            "id": "oyster",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 54,
+            "category": "marine",
+            "maxDecRate": 24,
+            "string": "Mussel",
+            "id": "mussel",
+            "whatif": "FALSE",
+            "desc": "TBD"
+        },
+        {
+            "key": 55,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Tin Can",
+            "id": "tin-can",
+            "whatif": "FALSE",
+            "desc": "NA"
+        },
+        {
+            "key": 56,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Aluminum Can",
+            "id": "aluminum-can",
+            "whatif": "FALSE",
+            "desc": "NA"
+        },
+        {
+            "key": 57,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Light Bulb",
+            "id": "light-bulb",
+            "whatif": "TRUE",
+            "desc": "Light bulb waste takes trash to decompose over than ten million years."
+        },
+        {
+            "key": 58,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Glass Bottle",
+            "id": "glass-bottle",
+            "whatif": "FALSE",
+            "desc": "Glass bottle takes trash to decompose over than ten million years."
+        },
+        {
+            "key": 59,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Plastic Bottle",
+            "id": "plastic-bottle",
+            "whatif": "FALSE",
+            "desc": "NA"
+        },
+        {
+            "key": 60,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Fishing Line",
+            "id": "fishing-line",
+            "whatif": "FALSE",
+            "desc": "NA"
+        },
+        {
+            "key": 61,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Disposable Diaper",
+            "id": "disposable-diaper",
+            "whatif": "FALSE",
+            "desc": "Disposable diaper takes trash to decompose over than 100 years."
+        },
+        {
+            "key": 62,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Styrofoam",
+            "id": "styrofoam",
+            "whatif": "FALSE",
+            "desc": "Styrofoam takes trash to decompose over than 500 years."
+        },
+        {
+            "key": 63,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Ink Cartridge",
+            "id": "ink-cartridge",
+            "whatif": "FALSE",
+            "desc": "Ink cartridge takes trash to decompose over than 500 years."
+        },
+        {
+            "key": 64,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Plastic Bag",
+            "id": "plastic-bag",
+            "whatif": "FALSE",
+            "desc": "Plastic bag takes trash to decompose over than 100 years."
+        },
+        {
+            "key": 65,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Toothbrush",
+            "id": "toothbrush",
+            "whatif": "FALSE",
+            "desc": "NA"
+        },
+        {
+            "key": 66,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Electronic Waste",
+            "id": "electronic-waste",
+            "whatif": "FALSE",
+            "desc": "Electronic waste takes trash to decompose over than 500 years."
+        },
+        {
+            "key": 67,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Nylon Fabric",
+            "id": "nylon-fabric",
+            "whatif": "FALSE",
+            "desc": "Nylon fabric waste takes trash to decompose over than 30-40 years."
+        },
+        {
+            "key": 68,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Leather Shoe",
+            "id": "leather-shoe",
+            "whatif": "FALSE",
+            "desc": "Leather shoe waste takes trash to decompose over than        25-40 years."
+        },
+        {
+            "key": 69,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Wooden Chopsticks",
+            "id": "wooden-chopsticks",
+            "whatif": "FALSE",
+            "desc": "NA"
+        },
+        {
+            "key": 70,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Cigarette Filter",
+            "id": "cigarette-filter",
+            "whatif": "FALSE",
+            "desc": "NA"
+        },
+        {
+            "key": 71,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Carton",
+            "id": "carton",
+            "whatif": "FALSE",
+            "desc": "The carton waste takes trash to decompose over than 5 years."
+        },
+        {
+            "key": 72,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Fishing Nets",
+            "id": "fishing-nets",
+            "whatif": "FALSE",
+            "desc": "NA"
+        },
+        {
+            "key": 73,
+            "category": "artificial",
+            "maxDecRate": 0,
+            "string": "Old Tires",
+            "id": "old-tires",
+            "whatif": "FALSE",
+            "desc": "NA"
+        }
+    ]
+}

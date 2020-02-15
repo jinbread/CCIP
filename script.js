@@ -1,5 +1,6 @@
 var degreeChange;
 var decreaseRate;
+var maxDegree = 3;
 
 // Vertical scroll height. It is changealbe and currently set as 20000px.
 var verticalHeight = 20000;
@@ -13,9 +14,13 @@ var selectedSpeciesMaxDecreaseRate;
 
 // Top Nav Bar Interaction 
 var navMenuArray;
-var groundState = false;
 var insectState = false;
+var birdState = false;
+var repAmpState = false;
+var mammalState = false;
+var plantState = false;
 var marineState = false;
+var artificialState = false;
 var overlayState = false;
 
 // Initialize overlay area animation
@@ -35,10 +40,9 @@ function loadJSON(callback) {
 
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'test.json', true);
+    xobj.open('GET', 'data.json', true);
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
-
             // .open will NOT return a value but simply returns undefined in async mode so use a callback
             callback(JSON.parse(xobj.responseText));
         }
@@ -53,33 +57,95 @@ loadJSON(function (response) {
     console.log(categoryArray)
 
     addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[0]), `${categoryArray[0]}-nav`)
-    // addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[1]), `${categoryArray[1]}-nav`)
-    // addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[2]), `${categoryArray[2]}-nav`)
-    // addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[3]), `${categoryArray[3]}-nav`)
-    // addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[4]), `${categoryArray[4]}-nav`)
+    addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[1]), `${categoryArray[1]}-nav`)
+    addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[2]), `${categoryArray[2]}-nav`)
+    addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[3]), `${categoryArray[3]}-nav`)
+    addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[4]), `${categoryArray[4]}-nav`)
     addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[5]), `${categoryArray[5]}-nav`)
-    // addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[6]), `${categoryArray[6]}-nav`)
- 
+    addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[6]), `${categoryArray[6]}-nav`)
+
     document.addEventListener('click', function (e) {
 
         if (e.target.id === "insect") {
             insectState = !insectState
+            birdState = false;
+            repAmpState = false;
+            mammalState = false;
+            plantState = false;
             marineState = false;
+            artificialState = false;
         }
-        changeNavMenuState(insectState, "insect")
+
+        if (e.target.id === "bird") {
+            insectState = false
+            birdState = !birdState;
+            repAmpState = false;
+            mammalState = false;
+            plantState = false;
+            marineState = false;
+            artificialState = false;
+        }
+
+        if (e.target.id === "reptile-and-amphibian") {
+            insectState = false
+            birdState = false;
+            repAmpState = !repAmpState;
+            mammalState = false;
+            plantState = false;
+            marineState = false;
+            artificialState = false;
+        }
+
+        if (e.target.id === "mammal") {
+            insectState = false
+            birdState = false;
+            repAmpState = false;
+            mammalState = !mammalState;
+            plantState = false;
+            marineState = false;
+            artificialState = false;
+        }
+
+        if (e.target.id === "plant") {
+            insectState = false
+            birdState = false;
+            repAmpState = false;
+            mammalState = false;
+            plantState = !plantState;
+            marineState = false;
+            artificialState = false;
+        }
 
         if (e.target.id === "marine") {
-            insectState = false;
+            insectState = false
+            birdState = false;
+            repAmpState = false;
+            mammalState = false;
+            plantState = false;
             marineState = !marineState
+            artificialState = false;
         }
-        changeNavMenuState(marineState, "marine")
+
+        if (e.target.id === "artificial") {
+            insectState = false
+            birdState = false;
+            repAmpState = false;
+            mammalState = false;
+            plantState = false;
+            marineState = false;
+            artificialState = !artificialState;
+        }
 
         if (e.target.id === "home" || e.target.id === "back-btn") {
             overlayState = false;
-            insectState = false;
+            insectState = false
+            birdState = false;
+            repAmpState = false;
+            mammalState = false;
+            plantState = false;
             marineState = false;
+            artificialState = false;
         }
-        changeOverlayState(overlayState)
 
         if (e.target.className === "two-depth-nav-item") {
             if (e.target.id === navMenuArray.filter(species => species.id === e.target.id)[0].id) {
@@ -90,12 +156,22 @@ loadJSON(function (response) {
                 whatifCase = selectedArray.whatif
 
                 overlayState = true;
-                insectState = false;
+                insectState = false
+                birdState = false;
+                repAmpState = false;
+                mammalState = false;
+                plantState = false;
                 marineState = false;
+                artificialState = false;
             }
         }
         changeNavMenuState(insectState, "insect")
+        changeNavMenuState(birdState, "bird")
+        changeNavMenuState(repAmpState, "reptile-and-amphibian")
+        changeNavMenuState(mammalState, "mammal")
+        changeNavMenuState(plantState, "plant")
         changeNavMenuState(marineState, "marine")
+        changeNavMenuState(artificialState, "artificial")
         changeOverlayState(overlayState)
 
         decreaseRate = (window.pageYOffset / (verticalHeight - window.innerHeight)) * selectedSpeciesMaxDecreaseRate;
@@ -117,7 +193,7 @@ loadJSON(function (response) {
 
 // Scroll Interaction
 window.addEventListener("scroll", function (e) {
-    degreeChange = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 2;
+    degreeChange = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * maxDegree;
 
     document.getElementById("degree-change").innerHTML = Math.floor(degreeChange * 10) / 10;
     // Set for scroll pixel debugging. 
@@ -184,9 +260,7 @@ function changeNavMenuState(categoryState, category) {
             easing: 'easeOutExpo',
             duration: 200
         })
-
     } else {
-        // console.log("run close anim")
         document.getElementById(category).style.opacity = .4
         document.getElementById(`${category}-nav`).style.pointerEvents = "none"
         anime({

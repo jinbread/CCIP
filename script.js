@@ -1,3 +1,28 @@
+function loadJSON(callback) {
+
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'test.json', true); // Replace 'my_data' with the path to your file
+    xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+        }
+    };
+    xobj.send(null);
+}
+
+function init() {
+    loadJSON(function (response) {
+        // Parse JSON string into object
+        var actual_JSON = JSON.parse(response);
+    });
+}
+
+
+init()
+
+// Seperate array to json file
 var testArray = [{
         name: "Atlantic Mackereel",
         maxDecRate: 40,
@@ -15,6 +40,163 @@ var testArray = [{
         maxDecRate: 70,
     }
 ]
+
+var navMenuArray = {
+    marine: [{
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+        {
+            id: "blue-whitning",
+            string: "Blue Whitning",
+            img: "../images/nav/marine/blue-whitning.png"
+        },
+        {
+            id: "atlantic-mackereel",
+            string: "Atlantic Mackereel",
+            img: "../images/nav/marine/atlantic-mackereel.png"
+        },
+    ],
+    ground: [{
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+        {
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+        {
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+        {
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+        {
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+        {
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+        {
+            id: "random-species",
+            string: "Random Species",
+            img: "../images/nav/marine/random-species.png"
+        },
+        {
+            id: "something-something",
+            string: "Something Something",
+            img: "../images/nav/marine/something-something.png"
+        },
+    ]
+
+}
+
 
 
 var degreeChange;
@@ -249,163 +431,6 @@ document.addEventListener("mouseleave", function (e) {
 })
 
 
-var navMenuArray = {
-    marine: [
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-        {
-            id: "blue-whitning",
-            string: "Blue Whitning",
-            img: "../images/nav/marine/blue-whitning.png"
-        },
-        {
-            id: "atlantic-mackereel",
-            string: "Atlantic Mackereel",
-            img: "../images/nav/marine/atlantic-mackereel.png"
-        },
-    ],
-    ground: [
-        {
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-        {
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-        {
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-        {
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-        {
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-        {
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-        {
-            id: "random-species",
-            string: "Random Species",
-            img: "../images/nav/marine/random-species.png"
-        },
-        {
-            id: "something-something",
-            string: "Something Something",
-            img: "../images/nav/marine/something-something.png"
-        },
-    ]
-
-}
 
 
 

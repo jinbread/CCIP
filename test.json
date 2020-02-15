@@ -1,0 +1,25 @@
+{
+    "marine": [{
+        "key": 1,
+        "id": "blue-whitning",
+        "string": "Blue Whitning",
+        "maxDecRate": 40,
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "whatif": true
+    }, {
+        "key": 2,
+        "id": "atlantic-mackereel",
+        "string": "Atlantic Mackereel",
+        "maxDecRate": 100,
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "whatif": false
+    }],
+    "mammal": [{
+        "key": 3,
+        "id": "random-species",
+        "string": "Random Species",
+        "maxDecRate": 80,
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "whatif": true
+    }, ]
+}

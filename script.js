@@ -13,10 +13,12 @@ function loadJSON(callback) {
     xobj.send(null);
 }
 
+var actual_JSON
+
 function init() {
     loadJSON(function(response) {
         // Parse JSON string into object
-        var actual_JSON = JSON.parse(response);
+        actual_JSON = JSON.parse(response);
     });
 }
 

@@ -20,6 +20,8 @@ function init() {
     });
 }
 
+console.log(actual_JSON)
+
 // Seperate array to json file
 var testArray = [{
         name: "Atlantic Mackereel",

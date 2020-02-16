@@ -55,6 +55,8 @@ canvas {
 /* scroll area */
 body::-webkit-scrollbar {
   display: none;
+  -ms-overflow-style: none;
+  overflow: hidden;
 }
 
 .scroll-height {
@@ -441,4 +443,5 @@ body::-webkit-scrollbar {
   opacity: 0;
   background-color: black;
   border: 1px solid white;
+  border-radius: 4px;
 }

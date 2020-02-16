@@ -416,3 +416,29 @@ body::-webkit-scrollbar {
   background: none;
   border: 1px solid white;
 }
+
+#about-popup {
+  display: none;
+}
+
+.bg-wrapper {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .7);
+  backdrop-filter: blur(20px);
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.popup-center-wrapper {
+  width: 80vw;
+  height: 80vh;
+  opacity: 0;
+  background-color: black;
+  border: 1px solid white;
+}

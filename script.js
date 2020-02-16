@@ -37,6 +37,11 @@ anime({
     translateY: 40,
 })
 
+anime({
+    targets: '.popup-center-wrapper',
+    translateY: 30,
+})
+
 function loadJSON(callback) {
 
     var xobj = new XMLHttpRequest();
@@ -148,6 +153,20 @@ loadJSON(function (response) {
             artificialState = false;
         }
 
+        if(e.target.id === "about") {
+            document.getElementById("about-popup").style.display = "block"
+            anime({
+                targets: ".popup-center-wrapper",
+                opacity: 1,
+                duration: 1000,
+                translateY: 0,
+            })
+            anime({
+                targets: ".bg-wrapper",
+                opacity: 1,
+                duration: 1000,
+            })
+        }
 
         if (e.target.className === "two-depth-nav-item") {
             if (e.target.id === navMenuArray.filter(species => species.id === e.target.id)[0].id) {
@@ -243,9 +262,26 @@ document.getElementById("privacy-btn").addEventListener('click', function (e) {
         opacity: 0,
         // translateY: 100,
     })
+    
+})
+
+
+
+document.getElementById("close-btn").addEventListener('click', function (e) {
+    anime({
+        targets: ".popup-center-wrapper",
+        opacity: 0,
+        duration: 1000,
+        translateY: 30
+    })
+    anime({
+        targets: ".bg-wrapper",
+        opacity: 0,
+        duration: 1000,
+    })
     setTimeout(function () {
-        removeElement("privacy-popup")
-    }, 500)
+        document.getElementById("about-popup").style.display = "none"
+    }, 1000)
 })
 
 function addNavMenuItem(objectArray, string) {

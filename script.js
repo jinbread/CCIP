@@ -1,6 +1,7 @@
 var degreeChange;
 var decreaseRate;
 var maxDegree = 3;
+var decreaseInput;
 
 // Vertical scroll height. It is changealbe and currently set as 20000px.
 var verticalHeight = 20000;
@@ -11,7 +12,13 @@ var selectedSpecies;
 var selectedKey;
 var descText;
 var whatifCase;
-var selectedSpeciesMaxDecreaseRate;
+var selectedSpeciesPointA;
+var selectedSpeciesPointB;
+var selectedSpeciesPointC;
+var selectedSpeciesPointD;
+var selectedSpeciesPointE;
+var selectedSpeciesPointF;
+var selectedSpeciesPointG;
 
 // Top Nav Bar Interaction 
 var navMenuArray;
@@ -21,7 +28,7 @@ var repAmpState = false;
 var mammalState = false;
 var plantState = false;
 var marineState = false;
-var artificialState = false;
+var anthropoceneState = false;
 var overlayState = false;
 
 // Initialize overlay area animation
@@ -79,7 +86,7 @@ loadJSON(function (response) {
             mammalState = false;
             plantState = false;
             marineState = false;
-            artificialState = false;
+            anthropoceneState = false;
         }
 
         if (e.target.id === "bird") {
@@ -89,7 +96,7 @@ loadJSON(function (response) {
             mammalState = false;
             plantState = false;
             marineState = false;
-            artificialState = false;
+            anthropoceneState = false;
         }
 
         if (e.target.id === "reptile-and-amphibian") {
@@ -99,7 +106,7 @@ loadJSON(function (response) {
             mammalState = false;
             plantState = false;
             marineState = false;
-            artificialState = false;
+            anthropoceneState = false;
         }
 
         if (e.target.id === "mammal") {
@@ -109,7 +116,7 @@ loadJSON(function (response) {
             mammalState = !mammalState;
             plantState = false;
             marineState = false;
-            artificialState = false;
+            anthropoceneState = false;
         }
 
         if (e.target.id === "plant") {
@@ -119,7 +126,7 @@ loadJSON(function (response) {
             mammalState = false;
             plantState = !plantState;
             marineState = false;
-            artificialState = false;
+            anthropoceneState = false;
         }
 
         if (e.target.id === "marine") {
@@ -129,17 +136,17 @@ loadJSON(function (response) {
             mammalState = false;
             plantState = false;
             marineState = !marineState
-            artificialState = false;
+            anthropoceneState = false;
         }
 
-        if (e.target.id === "artificial") {
+        if (e.target.id === "anthropocene") {
             insectState = false
             birdState = false;
             repAmpState = false;
             mammalState = false;
             plantState = false;
             marineState = false;
-            artificialState = !artificialState;
+            anthropoceneState = !anthropoceneState;
         }
 
         if (e.target.id === "home" || e.target.id === "back-btn") {
@@ -150,10 +157,10 @@ loadJSON(function (response) {
             mammalState = false;
             plantState = false;
             marineState = false;
-            artificialState = false;
+            anthropoceneState = false;
         }
 
-        if(e.target.id === "about") {
+        if (e.target.id === "about") {
             document.getElementById("about-popup").style.display = "block"
             anime({
                 targets: ".popup-center-wrapper",
@@ -172,7 +179,13 @@ loadJSON(function (response) {
             if (e.target.id === navMenuArray.filter(species => species.id === e.target.id)[0].id) {
                 selectedArray = navMenuArray.filter(species => species.id == e.target.id)[0]
                 selectedSpecies = selectedArray.string;
-                selectedSpeciesMaxDecreaseRate = selectedArray.maxDecRate;
+                selectedSpeciesPointA = selectedArray.pointA;
+                selectedSpeciesPointB = selectedArray.pointB;
+                selectedSpeciesPointC = selectedArray.pointC;
+                selectedSpeciesPointD = selectedArray.pointD;
+                selectedSpeciesPointE = selectedArray.pointE;
+                selectedSpeciesPointF = selectedArray.pointF;
+                selectedSpeciesPointG = selectedArray.pointG;
                 selectedKey = selectedArray.key
                 descText = selectedArray.desc;
                 whatifCase = selectedArray.whatif
@@ -184,7 +197,7 @@ loadJSON(function (response) {
                 mammalState = false;
                 plantState = false;
                 marineState = false;
-                artificialState = false;
+                anthropoceneState = false;
             }
         }
         changeNavMenuState(insectState, "insect")
@@ -193,15 +206,29 @@ loadJSON(function (response) {
         changeNavMenuState(mammalState, "mammal")
         changeNavMenuState(plantState, "plant")
         changeNavMenuState(marineState, "marine")
-        changeNavMenuState(artificialState, "artificial")
+        changeNavMenuState(anthropoceneState, "anthropocene")
         changeOverlayState(overlayState)
 
-        decreaseRate = (window.pageYOffset / (verticalHeight - window.innerHeight)) * selectedSpeciesMaxDecreaseRate;
+        decreaseInput = (window.pageYOffset / (verticalHeight - window.innerHeight)) * 100;
+        if(degreeChange >= 0 && degreeChange <= 0.5) {
+            decreaseRate = decreaseInput * (selectedSpeciesPointB) / 100 * 6
+            
+        } else if (degreeChange > 0.5 && degreeChange <= 1) {
+            decreaseRate = selectedSpeciesPointB + (decreaseInput - 100 / 6 * 1) * (selectedSpeciesPointC - selectedSpeciesPointB) / 100 * 6
+        } else if (degreeChange > 1 && degreeChange <= 1.5) {
+            decreaseRate = selectedSpeciesPointC + (decreaseInput - 100 / 6 * 2) * (selectedSpeciesPointD - selectedSpeciesPointC) / 100 * 6
+        } else if (degreeChange > 1.5 && degreeChange <= 2) {
+            decreaseRate = selectedSpeciesPointD + (decreaseInput - 100 / 6 * 3) * (selectedSpeciesPointE - selectedSpeciesPointD) / 100 * 6
+        } else if (degreeChange > 2 && degreeChange <= 2.5) {
+            decreaseRate = selectedSpeciesPointE + (decreaseInput - 100 / 6 * 4) * (selectedSpeciesPointF - selectedSpeciesPointE) / 100 * 6
+        } else if (degreeChange > 2.5) {
+            decreaseRate = selectedSpeciesPointF + (decreaseInput - 100 / 6 * 5) * (selectedSpeciesPointG - selectedSpeciesPointF) / 100 * 6
+        }
         document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
         document.getElementById("desc-text").innerHTML = descText;
         document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0) + "%";
 
-        if (Math.floor(degreeChange * 10) / 10 > 1.9) {
+        if (Number(decreaseRate) >= 100) {
             if (whatifCase === true) {
                 document.getElementById("whatif-btn").innerHTML = `<button class="btn-large">What if...</button>`;
             } else {
@@ -218,16 +245,29 @@ window.addEventListener("scroll", function (e) {
     degreeChange = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * maxDegree;
 
     document.getElementById("degree-change").innerHTML = Math.floor(degreeChange * 10) / 10;
-    // Set for scroll pixel debugging. 
-    // consol   e.log("page Y Offset: " + this.window.pageYOffset)
 
-    decreaseRate = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * selectedSpeciesMaxDecreaseRate;
+    decreaseInput = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 100;
+    if(degreeChange >= 0 && degreeChange <= 0.5) {
+        decreaseRate = decreaseInput * (selectedSpeciesPointB) / 100 * 6
+        
+    } else if (degreeChange > 0.5 && degreeChange <= 1) {
+        decreaseRate = selectedSpeciesPointB + (decreaseInput - 100 / 6 * 1) * (selectedSpeciesPointC - selectedSpeciesPointB) / 100 * 6
+    } else if (degreeChange > 1 && degreeChange <= 1.5) {
+        decreaseRate = selectedSpeciesPointC + (decreaseInput - 100 / 6 * 2) * (selectedSpeciesPointD - selectedSpeciesPointC) / 100 * 6
+    } else if (degreeChange > 1.5 && degreeChange <= 2) {
+        decreaseRate = selectedSpeciesPointD + (decreaseInput - 100 / 6 * 3) * (selectedSpeciesPointE - selectedSpeciesPointD) / 100 * 6
+    } else if (degreeChange > 2 && degreeChange <= 2.5) {
+        decreaseRate = selectedSpeciesPointE + (decreaseInput - 100 / 6 * 4) * (selectedSpeciesPointF - selectedSpeciesPointE) / 100 * 6
+    } else if (degreeChange > 2.5) {
+        decreaseRate = selectedSpeciesPointF + (decreaseInput - 100 / 6 * 5) * (selectedSpeciesPointG - selectedSpeciesPointF) / 100 * 6
+    }
+    
     this.document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
     this.document.getElementById("decrease-rate").innerHTML = Math.floor(decreaseRate) + "%";
 
     document.getElementById("progress-bar").style.height = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 100 + "%"
 
-    if (Math.floor(degreeChange * 10) / 10 > 1.9) {
+    if (Number(decreaseRate) >= 100) {
         if (whatifCase === true) {
             document.getElementById("whatif-btn").innerHTML = `<button class="btn-large">What if...</button>`;
         } else {
@@ -262,7 +302,7 @@ document.getElementById("privacy-btn").addEventListener('click', function (e) {
         opacity: 0,
         // translateY: 100,
     })
-    
+
 })
 
 

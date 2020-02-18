@@ -54,7 +54,7 @@ canvas {
 
 /* scroll area */
 body::-webkit-scrollbar {
-  display: none;
+  display: none !important;
   -ms-overflow-style: none;
   overflow: hidden;
 }

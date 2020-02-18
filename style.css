@@ -39,14 +39,16 @@ canvas {
 }
 
 .btn-large {
-  font-size: 1.4em;
-  padding: 16px 24px;
+  font-size: 18px;
+  padding: 18px 40px 19px 40px;
   border: 1px solid white;
-  margin-top: 24px;
+  /* margin-top: 24px; */
+  border-radius: 80px;
   opacity: .8;
   cursor: pointer;
   color: white;
   background: none;
+  height: 63px;
 }
 
 .btn-large:hover {
@@ -245,12 +247,8 @@ body::-webkit-scrollbar {
   overflow: hidden;
   align-self: center;
   justify-self: center;
-<<<<<<< HEAD
   overflow: auto;
   height: 103px;
-=======
-  height: 80px;
->>>>>>> 96da45667fcebb896f6f6de15ce90f21dbf6164e
   z-index: 10;
   /* background-color: #111; */
   position: relative;
@@ -364,7 +362,7 @@ body::-webkit-scrollbar {
 }
 
 .landing-wrapper {
-  max-width: 720px;
+  max-width: 620px;
   /* height: 50vh; */
   margin: auto;
   /* display: grid; */
@@ -375,12 +373,31 @@ body::-webkit-scrollbar {
 }
 
 .landing-logo {
-  font-size: 2em;
+  margin-bottom: 64px;
+}
+
+.landing-title {
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
 }
 
 .landing-text {
-  font-size: 1.2em;
-  margin: 32px 16px 48px 16px;
+  margin-bottom: 29px;
+  opacity: 0.7;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: 0.45px;
+  text-align: center;
+  color: #e6e5ff;
 }
 
 

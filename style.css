@@ -274,7 +274,7 @@ body::-webkit-scrollbar {
   /* width: 100%; */
   display: inline-block;
   z-index: 10;
-  /* overflow: auto; */
+  overflow: hidden;
 }
 
 #marine-nav {

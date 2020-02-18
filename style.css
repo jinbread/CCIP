@@ -319,6 +319,7 @@ body::-webkit-scrollbar {
   left: 0;
   z-index: -3;
   opacity: 0;
+  backdrop-filter: blur(20px);
 }
 
 .two-depth-nav-wrapper {

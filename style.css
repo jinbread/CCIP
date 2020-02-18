@@ -43,6 +43,7 @@ canvas {
   padding: 18px 40px 19px 40px;
   border: 1px solid white;
   /* margin-top: 24px; */
+  font-family: 'Playfair Display', serif;
   border-radius: 80px;
   opacity: .8;
   cursor: pointer;
@@ -101,18 +102,35 @@ body::-webkit-scrollbar {
 }
 
 #decrease-rate {
-  font-size: 8em;
+  font-size: 11em;
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin-bottom: 8px;
 }
 
-#selected-species {
-  font-size: 3em;
+.overlay-title {
+  font-size: 51px;
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  letter-spacing: 1.28px;
+}
+
+
+.overlay-content {
+  margin-top: 27px;
+  margin-bottom: 53px;
+  opacity: 0.8;
+  font-size: 18px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: 0.45px;
+  color: #e6e5ff;
 }
 
 .overlay-wrapper {
   height: 100vh;
-  max-width: 450px;
+  max-width: 500px;
   display: flex;
   margin-left: 72px;
   /* align-items: center; */
@@ -121,9 +139,14 @@ body::-webkit-scrollbar {
 }
 
 #back-btn {
-  opacity: .8;
   cursor: pointer;
-  font-size: 1.4em;
+  opacity: 1;
+  font-size: 18px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: 0.9px;
 }
 
 #back-btn:hover {
@@ -285,7 +308,9 @@ body::-webkit-scrollbar {
 .two-depth-nav {
   width: 100vw;
   /* height: 100vh; */
-  background: navy;
+  background: linear-gradient(217deg, rgba(17, 0, 170, 0.8), rgba(17, 0, 170, 0) 70.71%),
+  linear-gradient(336deg, rgba(235, 0, 0, 0.4), rgba(235, 0, 0, 0) 70.71%),
+  linear-gradient(127deg, rgb(0, 0, 0), rgba(0, 0, 0, 0) 70.71%);
   position: absolute;
   /* margin-top: 80px; */
   padding-top: 215px;
@@ -336,16 +361,17 @@ body::-webkit-scrollbar {
 }
 
 .two-depth-nav-item-img {
-  height: 132px;
+  height: 120px;
   display: block;
   pointer-events: none;
-  background-color: white;
+  border: 1px solid white;
+  margin-bottom: 12px;
 }
 
 .two-depth-nav-item-title {
   /* height: 28px; */
   font-size: 17px;
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
   pointer-events: none;
 }
 

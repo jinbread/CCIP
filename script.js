@@ -328,7 +328,7 @@ function addNavMenuItem(objectArray, string) {
     function createNavMenuItemHTML(objectArray) {
         var mapObject = objectArray.map(function (navItem) {
             return `<li class="two-depth-nav-item" id=${navItem.id}>
-            <img class="two-depth-nav-item-img" src=\"img/${navItem.id}.png\" alt=${navItem.string}/>
+            <img class="two-depth-nav-item-img" src=\"img/species/${navItem.id}.png\" alt=\"${navItem.string}\"/>
             <div class="two-depth-nav-item-title">${navItem.string}</div>
             </li>`
         })

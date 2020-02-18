@@ -248,7 +248,6 @@ body::-webkit-scrollbar {
   overflow: hidden;
   align-self: center;
   justify-self: center;
-  overflow: auto;
   height: 80px;
   z-index: 10;
   /* background-color: #111; */

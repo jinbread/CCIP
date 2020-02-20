@@ -158,7 +158,10 @@ loadJSON(function (response) {
             plantState = false;
             marineState = false;
             anthropoceneState = false;
+            console.log("back")
         }
+
+        console.log(e.target.id);
 
         if (e.target.id === "about") {
             document.getElementById("about-popup").style.display = "block"

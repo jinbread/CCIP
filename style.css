@@ -149,7 +149,7 @@ body::-webkit-scrollbar {
   height: 100vh;
   max-width: 500px;
   display: flex;
-  margin-left: 72px;
+  margin-left: 200px;
   /* align-items: center; */
   justify-content: center;
   flex-direction: column;
@@ -157,8 +157,11 @@ body::-webkit-scrollbar {
 
 #back-btn {
   cursor: pointer;
-  margin-bottom: -60px;
+  margin-bottom: -40px;
   vertical-align: middle;
+  display: grid;
+  grid-template-columns: 32px 54px;
+  z-index: 401;
 }
 
 .btn-text {
@@ -169,7 +172,7 @@ body::-webkit-scrollbar {
   font-style: normal;
   line-height: 1.17;
   
-  display: inline-block;
+  display: inline;
 }
 
 #back-btn:hover {

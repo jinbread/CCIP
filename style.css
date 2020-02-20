@@ -102,9 +102,25 @@ body::-webkit-scrollbar {
 }
 
 #decrease-rate {
-  font-size: 11em;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 250px;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -3px;
+  font-weight: bold;
   margin-bottom: 8px;
+  display: inline-block;
+}
+
+.decrease-percent {
+  font-family: 'Playfair Display', serif;
+  font-size: 100px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  display: inline-block;
 }
 
 .overlay-title {
@@ -112,6 +128,7 @@ body::-webkit-scrollbar {
   font-family: 'Playfair Display', serif;
   font-weight: bold;
   letter-spacing: 1.28px;
+  margin-top: -20px;
 }
 
 
@@ -140,13 +157,19 @@ body::-webkit-scrollbar {
 
 #back-btn {
   cursor: pointer;
+  margin-bottom: -60px;
+  vertical-align: middle;
+}
+
+.btn-text {
   opacity: 1;
   font-size: 18px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.17;
-  letter-spacing: 0.9px;
+  
+  display: inline-block;
 }
 
 #back-btn:hover {

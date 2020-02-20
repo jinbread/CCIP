@@ -226,7 +226,7 @@ loadJSON(function (response) {
         }
         document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
         document.getElementById("desc-text").innerHTML = descText;
-        document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0) + "%";
+        document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0);
 
         if (Number(decreaseRate) >= 100) {
             if (whatifCase === true) {
@@ -263,7 +263,7 @@ window.addEventListener("scroll", function (e) {
     }
     
     this.document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
-    this.document.getElementById("decrease-rate").innerHTML = Math.floor(decreaseRate) + "%";
+    this.document.getElementById("decrease-rate").innerHTML = Math.floor(decreaseRate);
 
     document.getElementById("progress-bar").style.height = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 100 + "%"
 

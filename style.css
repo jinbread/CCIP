@@ -366,6 +366,7 @@ body::-webkit-scrollbar {
   left: 0;
   z-index: -3;
   opacity: 0;
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 }
 
@@ -435,6 +436,7 @@ body::-webkit-scrollbar {
   position: fixed;
   background: linear-gradient(226deg, #1c005c 80%, 0deg, #000000 14%);
   z-index: 101;
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   display: flex;
 }
@@ -540,6 +542,7 @@ body::-webkit-scrollbar {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, .7);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   z-index: 400;
   display: flex;

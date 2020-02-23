@@ -76,6 +76,7 @@ loadJSON(function (response) {
     addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[4]), `${categoryArray[4]}-nav`)
     addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[5]), `${categoryArray[5]}-nav`)
     addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[6]), `${categoryArray[6]}-nav`)
+    addWhatifItem(navMenuArray.filter(species => species.whatif === true), "scroll-end-whatif")
 
     document.addEventListener('click', function (e) {
 
@@ -212,10 +213,10 @@ loadJSON(function (response) {
         changeNavMenuState(anthropoceneState, "anthropocene")
         changeOverlayState(overlayState)
 
-        decreaseInput = (window.pageYOffset / (verticalHeight - window.innerHeight)) * 100;
-        if(degreeChange >= 0 && degreeChange <= 0.5) {
+        decreaseInput = ((window.pageYOffset / (verticalHeight - window.innerHeight)) * 100).toFixed(2);
+        if (degreeChange >= 0 && degreeChange <= 0.5) {
             decreaseRate = decreaseInput * (selectedSpeciesPointB) / 100 * 6
-            
+
         } else if (degreeChange > 0.5 && degreeChange <= 1) {
             decreaseRate = selectedSpeciesPointB + (decreaseInput - 100 / 6 * 1) * (selectedSpeciesPointC - selectedSpeciesPointB) / 100 * 6
         } else if (degreeChange > 1 && degreeChange <= 1.5) {
@@ -240,19 +241,33 @@ loadJSON(function (response) {
         } else {
             document.getElementById("whatif-btn").innerHTML = "";
         }
+
+        if(overlayState == false) {
+            document.getElementById("scroll-end-popup").style.display = "block"
+            document.getElementById("scroll-end-popup").style.opacity = (degreeChange - 2.8) * 5
+        } else {
+            document.getElementById("scroll-end-popup").style.display = "none"
+        }
     })
 });
 
 // Scroll Interaction
 window.addEventListener("scroll", function (e) {
-    degreeChange = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * maxDegree;
+    degreeChange = ((window.pageYOffset / (verticalHeight - this.window.innerHeight)) * maxDegree).toFixed(2);
+    
+    if (overlayState == false && this.window.pageYOffset >= 18500) {
+        this.document.getElementById("scroll-end-popup").style.display = "block"
+        this.document.getElementById("scroll-end-popup").style.opacity = (this.window.pageYOffset - 18500) / 500
+    } else {
+        this.document.getElementById("scroll-end-popup").style.display = "none"
+    }
 
     document.getElementById("degree-change").innerHTML = Math.floor(degreeChange * 10) / 10;
 
     decreaseInput = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 100;
-    if(degreeChange >= 0 && degreeChange <= 0.5) {
+    if (degreeChange >= 0 && degreeChange <= 0.5) {
         decreaseRate = decreaseInput * (selectedSpeciesPointB) / 100 * 6
-        
+
     } else if (degreeChange > 0.5 && degreeChange <= 1) {
         decreaseRate = selectedSpeciesPointB + (decreaseInput - 100 / 6 * 1) * (selectedSpeciesPointC - selectedSpeciesPointB) / 100 * 6
     } else if (degreeChange > 1 && degreeChange <= 1.5) {
@@ -264,7 +279,7 @@ window.addEventListener("scroll", function (e) {
     } else if (degreeChange > 2.5) {
         decreaseRate = selectedSpeciesPointF + (decreaseInput - 100 / 6 * 5) * (selectedSpeciesPointG - selectedSpeciesPointF) / 100 * 6
     }
-    
+
     this.document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
     this.document.getElementById("decrease-rate").innerHTML = Math.floor(decreaseRate);
 
@@ -401,4 +416,18 @@ function changeOverlayState(state) {
         })
 
     }
+}
+
+function addWhatifItem(objectArray, string) {
+    function createWhatifItemHTML(objectArray) {
+        var mapObject = objectArray.map(function (navItem) {
+            return `<div class="scroll-end-icons-item" id="${navItem.id}-whatif">
+            <img  src=\"img/species/${navItem.id}.svg\" alt=\"${navItem.string}\"/>
+            </div>`
+        })
+        return mapObject.join('')
+    }
+
+    var whatifItemHTML = createWhatifItemHTML(objectArray)
+    this.document.getElementById(string).innerHTML = whatifItemHTML
 }

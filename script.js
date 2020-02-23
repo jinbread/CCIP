@@ -179,6 +179,21 @@ loadJSON(function (response) {
             })
         }
 
+        if (e.target.id === "bumblebee-whatif") {
+            document.getElementById("whatif-popup").style.display = "block"
+            anime({
+                targets: ".popup-center-wrapper",
+                opacity: 1,
+                duration: 1000,
+                translateY: 0,
+            })
+            anime({
+                targets: ".bg-wrapper",
+                opacity: 1,
+                duration: 1000,
+            })
+        }
+
         if (e.target.className === "two-depth-nav-item") {
             if (e.target.id === navMenuArray.filter(species => species.id === e.target.id)[0].id) {
                 selectedArray = navMenuArray.filter(species => species.id == e.target.id)[0]
@@ -204,6 +219,9 @@ loadJSON(function (response) {
                 anthropoceneState = false;
             }
         }
+
+
+
         changeNavMenuState(insectState, "insect")
         changeNavMenuState(birdState, "bird")
         changeNavMenuState(repAmpState, "reptile-and-amphibian")
@@ -212,6 +230,9 @@ loadJSON(function (response) {
         changeNavMenuState(marineState, "marine")
         changeNavMenuState(anthropoceneState, "anthropocene")
         changeOverlayState(overlayState)
+
+
+
 
         decreaseInput = ((window.pageYOffset / (verticalHeight - window.innerHeight)) * 100).toFixed(2);
         if (degreeChange >= 0 && degreeChange <= 0.5) {
@@ -234,7 +255,7 @@ loadJSON(function (response) {
 
         if (Number(decreaseRate) >= 100) {
             if (whatifCase === true) {
-                document.getElementById("whatif-btn").innerHTML = `<button class="btn-large">What if...</button>`;
+                document.getElementById("whatif-btn").innerHTML = `<button class="btn-large" id="${selectedArray.id}-detail-whatif">What if?</button>`;
             } else {
                 document.getElementById("whatif-btn").innerHTML = "";
             }
@@ -242,7 +263,7 @@ loadJSON(function (response) {
             document.getElementById("whatif-btn").innerHTML = "";
         }
 
-        if(overlayState == false) {
+        if (overlayState == false) {
             document.getElementById("scroll-end-popup").style.display = "block"
             document.getElementById("scroll-end-popup").style.opacity = (degreeChange - 2.8) * 5
         } else {
@@ -254,7 +275,7 @@ loadJSON(function (response) {
 // Scroll Interaction
 window.addEventListener("scroll", function (e) {
     degreeChange = ((window.pageYOffset / (verticalHeight - this.window.innerHeight)) * maxDegree).toFixed(2);
-    
+
     if (overlayState == false && this.window.pageYOffset >= 18500) {
         this.document.getElementById("scroll-end-popup").style.display = "block"
         this.document.getElementById("scroll-end-popup").style.opacity = (this.window.pageYOffset - 18500) / 500
@@ -325,7 +346,7 @@ document.getElementById("privacy-btn").addEventListener('click', function (e) {
 
 
 
-document.getElementById("close-btn").addEventListener('click', function (e) {
+document.getElementById("about-close-btn").addEventListener('click', function (e) {
     anime({
         targets: ".popup-center-wrapper",
         opacity: 0,
@@ -339,6 +360,23 @@ document.getElementById("close-btn").addEventListener('click', function (e) {
     })
     setTimeout(function () {
         document.getElementById("about-popup").style.display = "none"
+    }, 1000)
+})
+
+document.getElementById("whatif-close-btn").addEventListener('click', function (e) {
+    anime({
+        targets: ".popup-center-wrapper",
+        opacity: 0,
+        duration: 1000,
+        translateY: 30
+    })
+    anime({
+        targets: ".bg-wrapper",
+        opacity: 0,
+        duration: 1000,
+    })
+    setTimeout(function () {
+        document.getElementById("whatif-popup").style.display = "none"
     }, 1000)
 })
 
@@ -421,8 +459,8 @@ function changeOverlayState(state) {
 function addWhatifItem(objectArray, string) {
     function createWhatifItemHTML(objectArray) {
         var mapObject = objectArray.map(function (navItem) {
-            return `<div class="scroll-end-icons-item" id="${navItem.id}-whatif">
-            <img  src=\"img/species/${navItem.id}.svg\" alt=\"${navItem.string}\"/>
+            return `<div class="scroll-end-icons-item" >
+            <img  src=\"img/species/${navItem.id}.svg\" alt=\"${navItem.string}\" id="${navItem.id}-whatif"/>
             </div>`
         })
         return mapObject.join('')

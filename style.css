@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth
+}
+
 body {
   font-family: sans-serif;
   /* background: linear-gradient(217deg, rgba(17, 0, 170, 0.8), rgba(17, 0, 170, 0) 70.71%),
@@ -41,17 +45,21 @@ canvas {
 }
 
 .btn-large {
-  font-size: 18px;
-  padding: 18px 40px 19px 40px;
+  padding: 22px 36px 24px 36px;
   border: 1px solid white;
   /* margin-top: 24px; */
-  font-family: 'Playfair Display', serif;
   border-radius: 80px;
   opacity: .8;
   cursor: pointer;
   color: white;
   background: none;
-  height: 63px;
+  height: 64px;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .btn-large:hover {
@@ -415,10 +423,9 @@ body::-webkit-scrollbar {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background: linear-gradient(217deg, rgba(17, 0, 170, 0.8), rgba(17, 0, 170, 0) 70.71%),
-    linear-gradient(336deg, rgba(235, 0, 0, 0.4), rgba(235, 0, 0, 0) 70.71%),
-    linear-gradient(127deg, rgb(0, 0, 0), rgba(0, 0, 0, 0) 70.71%);
+  background: linear-gradient(226deg, #1c005c 80%, 0deg, #000000 14%);
   z-index: 101;
+  backdrop-filter: blur(20px);
   display: flex;
 }
 
@@ -491,13 +498,26 @@ body::-webkit-scrollbar {
 .btn-small {
   display: inline-block;
   /* height: 32px; */
-  font-size: 1.1em;
-  margin: 8px;
+  
+  margin: 0;
   padding: 8px 16px;
-  font-weight: 600;
   color: white;
   background: none;
-  border: 1px solid white;
+  /* border: 1px solid white; */
+  border: none;
+  font-size: 16px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.popup-close-btn-layout {
+  position: absolute;
+  right: 40px;
+  top: 40px;
 }
 
 #about-popup {
@@ -519,10 +539,11 @@ body::-webkit-scrollbar {
 }
 
 .popup-center-wrapper {
-  width: 80vw;
-  height: 80vh;
+  width: 85vw;
+  height: 85vh;
   opacity: 0;
-  background-color: black;
+  background: #502525;
+  
   border: 1px solid white;
   border-radius: 4px;
 }
@@ -577,6 +598,7 @@ body::-webkit-scrollbar {
   /* opacity: .7; */
   text-align: center;
   color: white;
+  /* pointer-events: none; */
 }
 
 .scroll-end-icons-title {
@@ -608,6 +630,7 @@ body::-webkit-scrollbar {
   margin-top: 32px;
   justify-content: center;
   align-items: center;
+  /* pointer-events: none; */
 }
 
 .scroll-end-icons-item {
@@ -618,4 +641,8 @@ body::-webkit-scrollbar {
 
 .scroll-end-icons-item:hover {
   opacity: 1;
+}
+
+#whatif-popup {
+  display: none;
 }

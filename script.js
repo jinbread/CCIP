@@ -308,7 +308,7 @@ window.addEventListener("scroll", function (e) {
 
     if (Number(decreaseRate) >= 100) {
         if (whatifCase === true) {
-            document.getElementById("whatif-btn").innerHTML = `<button class="btn-large">What if...</button>`;
+            document.getElementById("whatif-btn").innerHTML = `<button class="btn-large">What if?</button>`;
         } else {
             document.getElementById("whatif-btn").innerHTML = "";
         }
@@ -428,7 +428,7 @@ function changeOverlayState(state) {
         document.getElementById("overlay-area").style.display = "block"
         anime({
             targets: '#overlay-area',
-            opacity: 1
+            opacity: 1,
         })
         anime({
             targets: '.overlay-wrapper',
@@ -436,6 +436,7 @@ function changeOverlayState(state) {
             easing: 'easeOutExpo',
             duration: 200
         })
+        console.log("anim 1 done")
     } else {
         anime({
             targets: '.overlay-wrapper',
@@ -452,6 +453,7 @@ function changeOverlayState(state) {
                 }
             }
         })
+        console.log("anim 2 done")
 
     }
 }

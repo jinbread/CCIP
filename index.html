@@ -89,7 +89,9 @@
             <h2 id="selected-species" class="overlay-title">Not selected</h2>
             <h2 class="overlay-title" style="margin-top: -10px;">disappeared</h2>
             <p id="desc-text" class="overlay-content"></p>
-            <div id="whatif-btn"></div>
+            <div id="whatif-btn-area">
+                <button class="btn-large" id="whatif-btn">What if?</button>
+            </div>
 
         </div>
     </section>
@@ -122,8 +124,8 @@
     <section id="about-popup">
         <div class="bg-wrapper">
             <div class="popup-center-wrapper">
-                <div class="popup-close-btn-layout" id="about-close-btn">
-                    <button class="btn-small">Close</button>
+                <div class="popup-close-btn-layout" >
+                    <button class="btn-small" id="about-close-btn">Close</button>
                 </div>
             </div>
         </div>
@@ -132,10 +134,16 @@
     <section id="whatif-popup">
         <div class="bg-wrapper">
             <div class="popup-center-wrapper">
-                <div class="popup-close-btn-layout" id="whatif-close-btn">
-                    <button class="btn-small">Nope</button>
+                <div class="popup-close-btn-layout">
+                    <button class="btn-small" id="whatif-close-btn">Nope</button>
                 </div>
-                
+                <div class="whatif-popup-content-wrapper">
+                    <div id="whatif-popup-img"></div>
+                    <div class="whatif-popup-content">
+                        <div id="whatif-popup-content-title">Title</div>
+                        <div id="whatif-popup-content-text">Contents</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

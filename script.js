@@ -30,6 +30,8 @@ var plantState = false;
 var marineState = false;
 var anthropoceneState = false;
 var overlayState = false;
+var whatifState = false;
+var aboutState = false;
 
 // Initialize overlay area animation
 anime({
@@ -162,37 +164,7 @@ loadJSON(function (response) {
             console.log("back")
         }
 
-        console.log(e.target.id);
-
-        if (e.target.id === "about") {
-            document.getElementById("about-popup").style.display = "block"
-            anime({
-                targets: ".popup-center-wrapper",
-                opacity: 1,
-                duration: 1000,
-                translateY: 0,
-            })
-            anime({
-                targets: ".bg-wrapper",
-                opacity: 1,
-                duration: 1000,
-            })
-        }
-
-        if (e.target.id === "bumblebee-whatif") {
-            document.getElementById("whatif-popup").style.display = "block"
-            anime({
-                targets: ".popup-center-wrapper",
-                opacity: 1,
-                duration: 1000,
-                translateY: 0,
-            })
-            anime({
-                targets: ".bg-wrapper",
-                opacity: 1,
-                duration: 1000,
-            })
-        }
+        console.log(e.target.className);
 
         if (e.target.className === "two-depth-nav-item") {
             if (e.target.id === navMenuArray.filter(species => species.id === e.target.id)[0].id) {
@@ -219,8 +191,6 @@ loadJSON(function (response) {
                 anthropoceneState = false;
             }
         }
-
-
 
         changeNavMenuState(insectState, "insect")
         changeNavMenuState(birdState, "bird")
@@ -252,15 +222,19 @@ loadJSON(function (response) {
         document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
         document.getElementById("desc-text").innerHTML = descText;
         document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0);
+        if (whatifCase === true) {
+            document.getElementById("whatif-popup-content-title").innerHTML = "yo";
+            document.getElementById("whatif-popup-content-text").innerHTML = "yoyoyo";
+        }
 
         if (Number(decreaseRate) >= 100) {
             if (whatifCase === true) {
-                document.getElementById("whatif-btn").innerHTML = `<button class="btn-large" id="${selectedArray.id}-detail-whatif">What if?</button>`;
+                document.getElementById("whatif-btn").style.display = "block"
             } else {
-                document.getElementById("whatif-btn").innerHTML = "";
+                document.getElementById("whatif-btn").style.display = "none"
             }
         } else {
-            document.getElementById("whatif-btn").innerHTML = "";
+            document.getElementById("whatif-btn").style.display = "none"
         }
 
         if (overlayState == false) {
@@ -308,20 +282,45 @@ window.addEventListener("scroll", function (e) {
 
     if (Number(decreaseRate) >= 100) {
         if (whatifCase === true) {
-            document.getElementById("whatif-btn").innerHTML = `<button class="btn-large">What if?</button>`;
+            document.getElementById("whatif-btn").style.display = "block"
         } else {
-            document.getElementById("whatif-btn").innerHTML = "";
+            document.getElementById("whatif-btn").style.display = "none"
         }
     } else {
-        document.getElementById("whatif-btn").innerHTML = "";
+        document.getElementById("whatif-btn").style.display = "none"
     }
 
+}, {
+    passive: true
 });
+
+
+// Popup events
+document.getElementById("about").addEventListener('click', function (e) {
+    aboutState = true;
+    popupAnimation(aboutState, "about-popup")
+})
+
+document.getElementById("about-close-btn").addEventListener('click', function (e) {
+    aboutState = false;
+    popupAnimation(aboutState, "about-popup")
+})
+
+document.getElementById("whatif-btn").addEventListener('click', function (e) {
+    whatifState = true;
+    popupAnimation(whatifState, "whatif-popup")
+})
+
+document.getElementById("whatif-close-btn").addEventListener('click', function (e) {
+    whatifState = false;
+    popupAnimation(whatifState, "whatif-popup")
+})
 
 function removeElement(elementId) {
     var element = document.getElementById(elementId);
     element.remove(element);
 }
+
 
 document.getElementById("explore-btn").addEventListener('click', function (e) {
     anime({
@@ -342,42 +341,6 @@ document.getElementById("privacy-btn").addEventListener('click', function (e) {
         // translateY: 100,
     })
 
-})
-
-
-
-document.getElementById("about-close-btn").addEventListener('click', function (e) {
-    anime({
-        targets: ".popup-center-wrapper",
-        opacity: 0,
-        duration: 1000,
-        translateY: 30
-    })
-    anime({
-        targets: ".bg-wrapper",
-        opacity: 0,
-        duration: 1000,
-    })
-    setTimeout(function () {
-        document.getElementById("about-popup").style.display = "none"
-    }, 1000)
-})
-
-document.getElementById("whatif-close-btn").addEventListener('click', function (e) {
-    anime({
-        targets: ".popup-center-wrapper",
-        opacity: 0,
-        duration: 1000,
-        translateY: 30
-    })
-    anime({
-        targets: ".bg-wrapper",
-        opacity: 0,
-        duration: 1000,
-    })
-    setTimeout(function () {
-        document.getElementById("whatif-popup").style.display = "none"
-    }, 1000)
 })
 
 function addNavMenuItem(objectArray, string) {
@@ -423,6 +386,41 @@ function changeNavMenuState(categoryState, category) {
     }
 }
 
+function popupAnimation(state, id) {
+    if (state === true) {
+        document.getElementById(id).style.display = "block"
+        anime({
+            targets: `#${id} .popup-center-wrapper`,
+            opacity: 1,
+            duration: 1000,
+            translateY: 0,
+        })
+        anime({
+            targets: `#${id} .bg-wrapper`,
+            opacity: 1,
+            duration: 1000,
+        })
+        console.log("Opening Pop-up animation done")
+    } else {
+        anime({
+            targets: `#${id} .popup-center-wrapper`,
+            opacity: 0,
+            duration: 1000,
+            translateY: 30
+        })
+        anime({
+            targets: `#${id} .bg-wrapper`,
+            opacity: 0,
+            duration: 1000,
+        })
+        setTimeout(function () {
+            document.getElementById(id).style.display = "none"
+        }, 1000)
+        console.log("Closing Pop-up animation done")
+    }
+}
+
+
 function changeOverlayState(state) {
     if (state === true) {
         document.getElementById("overlay-area").style.display = "block"
@@ -436,8 +434,8 @@ function changeOverlayState(state) {
             easing: 'easeOutExpo',
             duration: 200
         })
-        console.log("anim 1 done")
-    } else {
+        console.log("Opening overlay animation done")
+    } else if (state === false) {
         anime({
             targets: '.overlay-wrapper',
             translateY: 40,
@@ -453,7 +451,7 @@ function changeOverlayState(state) {
                 }
             }
         })
-        console.log("anim 2 done")
+        console.log("Closing overlay animation done")
 
     }
 }

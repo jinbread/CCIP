@@ -7,18 +7,8 @@ var decreaseInput;
 var verticalHeight = 20000;
 
 // Selected Species and max decrease rate will be assigned based on user input(click)
-var selectedArray;
-var selectedSpecies;
+var selectedArray = [];
 var selectedKey;
-var descText;
-var whatifCase;
-var selectedSpeciesPointA;
-var selectedSpeciesPointB;
-var selectedSpeciesPointC;
-var selectedSpeciesPointD;
-var selectedSpeciesPointE;
-var selectedSpeciesPointF;
-var selectedSpeciesPointG;
 
 // Top Nav Bar Interaction 
 var navMenuArray;
@@ -69,7 +59,6 @@ function loadJSON(callback) {
 loadJSON(function (response) {
     navMenuArray = response.species
     categoryArray = response.category
-    console.log(categoryArray)
 
     addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[0]), `${categoryArray[0]}-nav`)
     addNavMenuItem(navMenuArray.filter(species => species.category == categoryArray[1]), `${categoryArray[1]}-nav`)
@@ -164,22 +153,13 @@ loadJSON(function (response) {
             console.log("back")
         }
 
-        console.log(e.target.className);
+        // console.log(e.target.className);
 
         if (e.target.className === "two-depth-nav-item") {
             if (e.target.id === navMenuArray.filter(species => species.id === e.target.id)[0].id) {
                 selectedArray = navMenuArray.filter(species => species.id == e.target.id)[0]
                 selectedSpecies = selectedArray.string;
-                selectedSpeciesPointA = selectedArray.pointA;
-                selectedSpeciesPointB = selectedArray.pointB;
-                selectedSpeciesPointC = selectedArray.pointC;
-                selectedSpeciesPointD = selectedArray.pointD;
-                selectedSpeciesPointE = selectedArray.pointE;
-                selectedSpeciesPointF = selectedArray.pointF;
-                selectedSpeciesPointG = selectedArray.pointG;
                 selectedKey = selectedArray.key
-                descText = selectedArray.desc;
-                whatifCase = selectedArray.whatif
 
                 overlayState = true;
                 insectState = false
@@ -201,38 +181,30 @@ loadJSON(function (response) {
         changeNavMenuState(anthropoceneState, "anthropocene")
         changeOverlayState(overlayState)
 
-
-
-
         decreaseInput = ((window.pageYOffset / (verticalHeight - window.innerHeight)) * 100).toFixed(2);
         if (degreeChange >= 0 && degreeChange <= 0.5) {
-            decreaseRate = decreaseInput * (selectedSpeciesPointB) / 100 * 6
+            decreaseRate = decreaseInput * (selectedArray.pointB) / 100 * 6
 
         } else if (degreeChange > 0.5 && degreeChange <= 1) {
-            decreaseRate = selectedSpeciesPointB + (decreaseInput - 100 / 6 * 1) * (selectedSpeciesPointC - selectedSpeciesPointB) / 100 * 6
+            decreaseRate = selectedArray.pointB + (decreaseInput - 100 / 6 * 1) * (selectedArray.pointC - selectedArray.pointB) / 100 * 6
         } else if (degreeChange > 1 && degreeChange <= 1.5) {
-            decreaseRate = selectedSpeciesPointC + (decreaseInput - 100 / 6 * 2) * (selectedSpeciesPointD - selectedSpeciesPointC) / 100 * 6
+            decreaseRate = selectedArray.pointC + (decreaseInput - 100 / 6 * 2) * (selectedArray.pointD - selectedArray.pointC) / 100 * 6
         } else if (degreeChange > 1.5 && degreeChange <= 2) {
-            decreaseRate = selectedSpeciesPointD + (decreaseInput - 100 / 6 * 3) * (selectedSpeciesPointE - selectedSpeciesPointD) / 100 * 6
+            decreaseRate = selectedArray.pointD + (decreaseInput - 100 / 6 * 3) * (selectedArray.pointE - selectedArray.pointD) / 100 * 6
         } else if (degreeChange > 2 && degreeChange <= 2.5) {
-            decreaseRate = selectedSpeciesPointE + (decreaseInput - 100 / 6 * 4) * (selectedSpeciesPointF - selectedSpeciesPointE) / 100 * 6
+            decreaseRate = selectedArray.pointE + (decreaseInput - 100 / 6 * 4) * (selectedArray.pointF - selectedArray.pointE) / 100 * 6
         } else if (degreeChange > 2.5) {
-            decreaseRate = selectedSpeciesPointF + (decreaseInput - 100 / 6 * 5) * (selectedSpeciesPointG - selectedSpeciesPointF) / 100 * 6
+            decreaseRate = selectedArray.pointF + (decreaseInput - 100 / 6 * 5) * (selectedArray.pointG - selectedArray.pointF) / 100 * 6
         }
-        document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
-        document.getElementById("desc-text").innerHTML = descText;
+        document.getElementById("selected-species").innerHTML = `of ${selectedArray.string}`;
+        document.getElementById("desc-text").innerHTML = selectedArray.desc;
         document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0);
-        if (whatifCase === true) {
-            document.getElementById("whatif-popup-content-title").innerHTML = "yo";
-            document.getElementById("whatif-popup-content-text").innerHTML = "yoyoyo";
-        }
 
-        if (Number(decreaseRate) >= 100) {
-            if (whatifCase === true) {
-                document.getElementById("whatif-btn").style.display = "block"
-            } else {
-                document.getElementById("whatif-btn").style.display = "none"
-            }
+        if (selectedArray.whatif === true) {
+            document.getElementById("whatif-btn").style.display = "block"
+            document.getElementById("whatif-popup-img").innerHTML = `<img src=\"img/whatif/${selectedArray.id}.png\" class="whatif-img" alt=\"${selectedArray.string}\">`;
+            document.getElementById("whatif-popup-content-title").innerHTML = selectedArray.whatifTitle;
+            document.getElementById("whatif-popup-content-text").innerHTML = selectedArray.whatifDesc;
         } else {
             document.getElementById("whatif-btn").style.display = "none"
         }
@@ -261,34 +233,24 @@ window.addEventListener("scroll", function (e) {
 
     decreaseInput = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 100;
     if (degreeChange >= 0 && degreeChange <= 0.5) {
-        decreaseRate = decreaseInput * (selectedSpeciesPointB) / 100 * 6
+        decreaseRate = decreaseInput * (selectedArray.pointB) / 100 * 6
 
     } else if (degreeChange > 0.5 && degreeChange <= 1) {
-        decreaseRate = selectedSpeciesPointB + (decreaseInput - 100 / 6 * 1) * (selectedSpeciesPointC - selectedSpeciesPointB) / 100 * 6
+        decreaseRate = selectedArray.pointB + (decreaseInput - 100 / 6 * 1) * (selectedArray.pointC - selectedArray.pointB) / 100 * 6
     } else if (degreeChange > 1 && degreeChange <= 1.5) {
-        decreaseRate = selectedSpeciesPointC + (decreaseInput - 100 / 6 * 2) * (selectedSpeciesPointD - selectedSpeciesPointC) / 100 * 6
+        decreaseRate = selectedArray.pointC + (decreaseInput - 100 / 6 * 2) * (selectedArray.pointD - selectedArray.pointC) / 100 * 6
     } else if (degreeChange > 1.5 && degreeChange <= 2) {
-        decreaseRate = selectedSpeciesPointD + (decreaseInput - 100 / 6 * 3) * (selectedSpeciesPointE - selectedSpeciesPointD) / 100 * 6
+        decreaseRate = selectedArray.pointD + (decreaseInput - 100 / 6 * 3) * (selectedArray.pointE - selectedArray.pointD) / 100 * 6
     } else if (degreeChange > 2 && degreeChange <= 2.5) {
-        decreaseRate = selectedSpeciesPointE + (decreaseInput - 100 / 6 * 4) * (selectedSpeciesPointF - selectedSpeciesPointE) / 100 * 6
+        decreaseRate = selectedArray.pointE + (decreaseInput - 100 / 6 * 4) * (selectedArray.pointF - selectedArray.pointE) / 100 * 6
     } else if (degreeChange > 2.5) {
-        decreaseRate = selectedSpeciesPointF + (decreaseInput - 100 / 6 * 5) * (selectedSpeciesPointG - selectedSpeciesPointF) / 100 * 6
+        decreaseRate = selectedArray.pointF + (decreaseInput - 100 / 6 * 5) * (selectedArray.pointG - selectedArray.pointF) / 100 * 6
     }
 
-    this.document.getElementById("selected-species").innerHTML = `of ${selectedSpecies}`;
+    this.document.getElementById("selected-species").innerHTML = `of ${selectedArray.string}`;
     this.document.getElementById("decrease-rate").innerHTML = Math.floor(decreaseRate);
 
     document.getElementById("progress-bar").style.height = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 100 + "%"
-
-    if (Number(decreaseRate) >= 100) {
-        if (whatifCase === true) {
-            document.getElementById("whatif-btn").style.display = "block"
-        } else {
-            document.getElementById("whatif-btn").style.display = "none"
-        }
-    } else {
-        document.getElementById("whatif-btn").style.display = "none"
-    }
 
 }, {
     passive: true
@@ -338,7 +300,6 @@ document.getElementById("privacy-btn").addEventListener('click', function (e) {
     anime({
         targets: "#privacy-popup",
         opacity: 0,
-        // translateY: 100,
     })
 
 })
@@ -460,7 +421,7 @@ function addWhatifItem(objectArray, string) {
     function createWhatifItemHTML(objectArray) {
         var mapObject = objectArray.map(function (navItem) {
             return `<div class="scroll-end-icons-item" >
-            <img  src=\"img/species/${navItem.id}.svg\" alt=\"${navItem.string}\" id="${navItem.id}-whatif"/>
+            <img src=\"img/species/${navItem.id}.svg\" alt=\"${navItem.string}\" id="${navItem.id}-whatif"/>
             </div>`
         })
         return mapObject.join('')

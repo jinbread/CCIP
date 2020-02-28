@@ -649,6 +649,7 @@ body::-webkit-scrollbar {
   max-width: 120px;
   opacity: .7;
   cursor: pointer;
+  /* pointer-events: none; */
 }
 
 .scroll-end-icons-item:hover {

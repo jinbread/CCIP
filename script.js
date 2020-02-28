@@ -200,6 +200,14 @@ loadJSON(function (response) {
         document.getElementById("desc-text").innerHTML = selectedArray.desc;
         document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0);
 
+
+        //what if 
+        // if (e.target.id === "bumblebee-whatif") {
+        //     selectedArray = navMenuArray.filter(species => species.id === "bumblebee")
+        //     whatifState = true;
+        //     popupAnimation(whatifState, "whatif-popup")
+        // }
+
         if (selectedArray.whatif === true) {
             document.getElementById("whatif-btn").style.display = "block"
             document.getElementById("whatif-popup-img").innerHTML = `<img src=\"img/whatif/${selectedArray.id}.png\" class="whatif-img" alt=\"${selectedArray.string}\">`;
@@ -219,7 +227,12 @@ loadJSON(function (response) {
 });
 
 // Scroll Interaction
-window.addEventListener("scroll", function (e) {
+var scheduledAnimationFrame;
+
+function readAndUpdatePage() {
+    console.log('render');
+    scheduledAnimationFrame = false;
+
     degreeChange = ((window.pageYOffset / (verticalHeight - this.window.innerHeight)) * maxDegree).toFixed(2);
 
     if (overlayState == false && this.window.pageYOffset >= 18500) {
@@ -252,10 +265,22 @@ window.addEventListener("scroll", function (e) {
 
     document.getElementById("progress-bar").style.height = (window.pageYOffset / (verticalHeight - this.window.innerHeight)) * 100 + "%"
 
-}, {
-    passive: true
-});
+}
 
+function onScroll(e) {
+    // Store the scroll value for laterz.
+    lastScrollY = window.scrollY;
+
+    // Prevent multiple rAF callbacks.
+    if (scheduledAnimationFrame) {
+        return;
+    }
+
+    scheduledAnimationFrame = true;
+    requestAnimationFrame(readAndUpdatePage);
+}
+
+window.addEventListener("scroll", onScroll);
 
 // Popup events
 document.getElementById("about").addEventListener('click', function (e) {
@@ -418,9 +443,18 @@ function changeOverlayState(state) {
 }
 
 function addWhatifItem(objectArray, string) {
+    function openWhatifPopup(whatifSpecies) {
+        whatifID = whatifSpecies + "-whatif"
+        document.getElementById(whatifID).addEventListener("click", function () {
+            selectedArray = navMenuArray.filter(species => species.id === whatifSpecies)[0]
+            whatifState = true;
+            popupAnimation(whatifState, "whatif-popup")
+        })
+    }
+
     function createWhatifItemHTML(objectArray) {
         var mapObject = objectArray.map(function (navItem) {
-            return `<div class="scroll-end-icons-item" >
+            return `<div class="scroll-end-icons-item">
             <img src=\"img/species/${navItem.id}.svg\" alt=\"${navItem.string}\" id="${navItem.id}-whatif"/>
             </div>`
         })
@@ -429,4 +463,8 @@ function addWhatifItem(objectArray, string) {
 
     var whatifItemHTML = createWhatifItemHTML(objectArray)
     this.document.getElementById(string).innerHTML = whatifItemHTML
+
+    objectArray.map(function (item) {
+        return openWhatifPopup(item.id)
+    })
 }

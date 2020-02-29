@@ -204,8 +204,8 @@ loadJSON(function (response) {
         if (selectedArray.whatif === true) {
             document.getElementById("whatif-btn").style.display = "block"
             document.getElementById("whatif-popup-img").innerHTML = `<img src=\"img/whatif/${selectedArray.id}.png\" class="whatif-img" alt=\"${selectedArray.string}\">`;
-            document.getElementById("whatif-popup-content-title").innerHTML = selectedArray.whatifTitle;
-            document.getElementById("whatif-popup-content-text").innerHTML = selectedArray.whatifDesc;
+            document.getElementById("whatif-popup-desc-title").innerHTML = selectedArray.whatifTitle;
+            document.getElementById("whatif-popup-desc-text").innerHTML = selectedArray.whatifDesc;
         } else {
             document.getElementById("whatif-btn").style.display = "none"
         }
@@ -395,7 +395,7 @@ function popupAnimation(state, id) {
         })
         setTimeout(function () {
             document.getElementById(id).style.display = "none"
-        }, 1000)
+        }, 800)
         console.log("Closing Pop-up animation done")
     }
 }

@@ -22,8 +22,8 @@
             "id": "bumblebee",
             "desc": "The bumblebee species declined in range and abundance.",
             "whatif": true,
-            "whatifTitle": "What if Bees are gone on the earth",
-            "whatifDesc": "In China’s Sichuan province, where the number of bees has dropped significantly, farmers in orchards are already artificially pollinating apple trees. If the bees disappear, young children, who are relatively easy to climb the trees, will use specialized tools such as a stick for hand-pollination, to go up and down the trees and artificially pollinate them."
+            "whatifTitle": "What if<br/>Bees are gone<br/>on the earth",
+            "whatifDesc": "In China’s Sichuan province, where the number of bees has dropped significantly, farmers in orchards are already artificially pollinating apple trees. <br/> <br/> If the bees disappear, young children, who are relatively easy to climb the trees, will use specialized tools such as a stick for hand-pollination, to go up and down the trees and artificially pollinate them."
         },
         {
             "key": 2,
@@ -225,9 +225,9 @@
             "string": "Lizard",
             "id": "lizard",
             "desc": "Many reptiles are highly sensitive to the altered temperatures.",
-            "whatif": true,
-            "whatifTitle": "What if Bees are gone on the earth",
-            "whatifDesc": "In China’s Sichuan province, where the number of bees has dropped significantly, farmers in orchards are already artificially pollinating apple trees. If the bees disappear, young children, who are relatively easy to climb the trees, will use specialized tools such as a stick for hand-pollination, to go up and down the trees and artificially pollinate them."
+            "whatif": false,
+            "whatifTitle": "",
+            "whatifDesc": ""
         },
         {
             "key": 14,
@@ -310,9 +310,9 @@
             "string": "Crocodilian",
             "id": "crocodilian",
             "desc": "Many reptiles are highly sensitive to the altered temperatures.",
-            "whatif": false,
-            "whatifTitle": "",
-            "whatifDesc": ""
+            "whatif": true,
+            "whatifTitle": "Crocodilian",
+            "whatifDesc": "Write Something"
         },
         {
             "key": 19,
@@ -412,9 +412,9 @@
             "string": "Gorilla",
             "id": "gorilla",
             "desc": "TBD",
-            "whatif": true,
-            "whatifTitle": "What if Bees are gone on the earth",
-            "whatifDesc": "In China’s Sichuan province, where the number of bees has dropped significantly, farmers in orchards are already artificially pollinating apple trees. If the bees disappear, young children, who are relatively easy to climb the trees, will use specialized tools such as a stick for hand-pollination, to go up and down the trees and artificially pollinate them."
+            "whatif": false,
+            "whatifTitle": "",
+            "whatifDesc": ""
         },
         {
             "key": 25,
@@ -583,8 +583,8 @@
             "id": "barley",
             "desc": "Warming climate threatens world's beer supply since the barley which is the main ingredient in beer is likely to drop substantially because severe droughts and heat extremes will become more frequent as the climate changes.",
             "whatif": true,
-            "whatifTitle": "",
-            "whatifDesc": ""
+            "whatifTitle": "Barley",
+            "whatifDesc": "Write Something"
         },
         {
             "key": 35,
@@ -667,9 +667,9 @@
             "string": "Coral",
             "id": "coral",
             "desc": "Corals cannot survive the frequency of current bleaching events from global temperature rise.",
-            "whatif": false,
-            "whatifTitle": "",
-            "whatifDesc": ""
+            "whatif": true,
+            "whatifTitle": "Coral",
+            "whatifDesc": "Hello"
         },
         {
             "key": 40,
@@ -735,9 +735,9 @@
             "string": "Phytoplankton",
             "id": "phytoplankton",
             "desc": "Depending on location, these include both dramatic increases and decreases changes in distribution of phytoplankton over the past several decades.",
-            "whatif": true,
-            "whatifTitle": "What if Bees are gone on the earth",
-            "whatifDesc": "In China’s Sichuan province, where the number of bees has dropped significantly, farmers in orchards are already artificially pollinating apple trees. If the bees disappear, young children, who are relatively easy to climb the trees, will use specialized tools such as a stick for hand-pollination, to go up and down the trees and artificially pollinate them."
+            "whatif": false,
+            "whatifTitle": "",
+            "whatifDesc": ""
         },
         {
             "key": 44,
@@ -990,9 +990,9 @@
             "string": "Light Bulb",
             "id": "light-bulb",
             "desc": "Light bulb waste takes trash to decompose over than ten million years.",
-            "whatif": true,
-            "whatifTitle": "What if Bees are gone on the earth",
-            "whatifDesc": "In China’s Sichuan province, where the number of bees has dropped significantly, farmers in orchards are already artificially pollinating apple trees. If the bees disappear, young children, who are relatively easy to climb the trees, will use specialized tools such as a stick for hand-pollination, to go up and down the trees and artificially pollinate them."
+            "whatif": false,
+            "whatifTitle": "",
+            "whatifDesc": ""
         },
         {
             "key": 59,

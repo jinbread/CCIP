@@ -523,7 +523,7 @@ body::-webkit-scrollbar {
 .btn-small {
   display: inline-block;
   /* height: 32px; */
-  
+
   margin: 0;
   padding: 8px 16px;
   color: white;
@@ -537,6 +537,12 @@ body::-webkit-scrollbar {
   line-height: 1.2;
   letter-spacing: 1px;
   text-transform: uppercase;
+  opacity: .7;
+  cursor: pointer;
+}
+
+.btn-small:hover {
+  opacity: 1;
 }
 
 .popup-close-btn-layout {
@@ -565,8 +571,8 @@ body::-webkit-scrollbar {
 }
 
 .popup-center-wrapper {
-  max-width: 1080px;
-  height: 85vh;
+  width: 1400px;
+  height: 768px;
   opacity: 1;
   background: linear-gradient(232deg, rgba(36, 21, 114, .94), rgba(18, 0, 60, .31), #000000);
   /* box-shadow: 0px 0px 80px rgba(255, 255, 255, .2); */
@@ -677,33 +683,67 @@ body::-webkit-scrollbar {
 
 
 #whatif-popup {
-  display: block;
+  display: none;
 }
 
 .whatif-popup-content-wrapper {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1024px auto;
 }
 
 
 
 #whatif-popup-img {
-  background: white;
-  height: 85vh;
+  background: none;
+  /* height: 85vh; */
+  max-width: 1024px;
   display: block;
+  overflow: hidden;
+  height: auto;
 }
 
 .whatif-img {
-  max-width: 100%;
-  /* max-height: 100%; */
+  display: block;
+  max-width: 1024px;
+  overflow: hidden;
+  height: auto;
+  background: none;
+  border-radius: 8px 0 0 8px;
+  /* height: 100%; */
 }
 
-.whatif-popup-content {
-  display: absolute;
+.whatif-popup-desc {
+  /* display: grid; */
   margin-left: 40px;
-  margin-right: 40px; 
-  margin-bottom: 40px;
-  bottom: 0px;
+  margin-right: 48px;
+  margin-bottom: 80px;
+  min-height: 300px;
+  position: relative;
+  /* bottom: 0px; */
   color: white;
+  /* gap: 32px; */
+  pointer-events: none;
 }
 
+.whatif-popup-desc-wrapper {
+  position: absolute;
+  /* display: block; */
+  bottom: 0;
+}
+
+#whatif-popup-desc-title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.32;
+}
+
+#whatif-popup-desc-text {
+  margin-top: 32px;
+  opacity: 0.7;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.67;
+  letter-spacing: 0.27px;
+  
+}

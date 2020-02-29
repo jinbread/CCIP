@@ -200,14 +200,7 @@ loadJSON(function (response) {
         document.getElementById("desc-text").innerHTML = selectedArray.desc;
         document.getElementById("decrease-rate").innerHTML = decreaseRate.toFixed(0);
 
-
         //what if 
-        // if (e.target.id === "bumblebee-whatif") {
-        //     selectedArray = navMenuArray.filter(species => species.id === "bumblebee")
-        //     whatifState = true;
-        //     popupAnimation(whatifState, "whatif-popup")
-        // }
-
         if (selectedArray.whatif === true) {
             document.getElementById("whatif-btn").style.display = "block"
             document.getElementById("whatif-popup-img").innerHTML = `<img src=\"img/whatif/${selectedArray.id}.png\" class="whatif-img" alt=\"${selectedArray.string}\">`;
@@ -335,6 +328,7 @@ function addNavMenuItem(objectArray, string) {
             return `<li class="two-depth-nav-item" id=${navItem.id}>
             <img class="two-depth-nav-item-img" src=\"img/species/${navItem.id}.svg\" alt=\"${navItem.string}\"/>
             <div class="two-depth-nav-item-title">${navItem.string}</div>
+            ${(navItem.whatif ? "<div class=\"two-depth-nav-item-whatif\">What if</div>" : "")}
             </li>`
         })
         return mapObject.join('')
@@ -450,7 +444,7 @@ function addWhatifItem(objectArray, string) {
             whatifState = true;
             popupAnimation(whatifState, "whatif-popup")
         })
-    }
+    }   
 
     function createWhatifItemHTML(objectArray) {
         var mapObject = objectArray.map(function (navItem) {
